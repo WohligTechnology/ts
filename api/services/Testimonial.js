@@ -4,27 +4,27 @@ var schema = new Schema({
         required: true,
         unique: true,
         uniqueCaseInsensitive: true
-        },
-        designation:{
-            type:String,
-            default: ""
-        },
-        company:{
-            type:String,
-            default: ""
-        },
-        testimonial:{
-            type:String,
-            default: ""
-        },
-        image:{
-            type:String,
-            default: ""
-        },
-        sequence:{
-            type:Number
-        }
-    
+    },
+    designation: {
+        type: String,
+        default: ""
+    },
+    company: {
+        type: String,
+        default: ""
+    },
+    testimonial: {
+        type: String,
+        default: ""
+    },
+    image: {
+        type: String,
+        default: ""
+    },
+    sequence: {
+        type: Number
+    }
+
 });
 
 schema.plugin(deepPopulate, {});

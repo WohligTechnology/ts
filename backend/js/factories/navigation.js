@@ -10,7 +10,42 @@ myApp.factory('NavigationService', function ($http) {
         name: "Users",
         classis: "active",
         sref: "#!/page/viewUser//",
+        icon: "users"
+    },{
+        name: "Category",
+        classis: "active",
+        sref: "#!/page/viewCategory//",
         icon: "phone"
+    },{
+        name: "Course",
+        classis: "active",
+        sref: "#!/page/viewCourse//",
+        icon: "phone"
+    },{
+        name: "Module",
+        classis: "active",
+        sref: "#!/page/viewModule//",
+        icon: "phone"
+    },{
+        name: "Pages",
+        classis: "active",
+        sref: "#!/page/viewPages//",
+        icon: "file"
+    },{
+        name: "Project Configs",
+        classis: "active",
+        sref: "#!/page/viewProjectConfig//",
+        icon: "phone"
+    },{
+        name: "Testimonial",
+        classis: "active",
+        sref: "#!/page/viewTestimonial//",
+        icon: "phone"
+    },{
+        name: "Videos",
+        classis: "active",
+        sref: "#!/page/viewVideos//",
+        icon: "file"
     }];
 
     return {

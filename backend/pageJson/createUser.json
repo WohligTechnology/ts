@@ -85,6 +85,79 @@
         "dropDownType": "single",
         "onView": true,
         "dropDown": ["User", "Admin"]
+    }, {
+        "name": "oneSignal",
+        "type": "text",
+        "tableRef": "oneSignal",
+        "placeholder": "Enter One Signal",
+        "id": "oneSignal",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Contact",
+        "type": "text",
+        "tableRef": "contact",
+        "placeholder": "Enter Contact",
+        "id": "contact",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Subscribed",
+        "type": "box",
+        "tableRef": "subscribed",
+        "validation": ["", "trim", ""],
+        "field": [{
+            "name": "Course",
+            "type": "tags",
+            "tableRef": "course",
+            "dropDownType": "single",
+            "dropDownField": "name",
+            "searchApi": "searchCall",
+            "placeholder": "Select Course",
+            "id": "input1",
+            "validation": ["required", "trim", ""],
+            "url": "Course/search"
+        }, {
+            "name": "End Time",
+            "type": "text",
+            "tableRef": "endTime",
+            "placeholder": "Enter End Time",
+            "id": "endTime",
+            "validation": ["required", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Amount",
+            "type": "text",
+            "tableRef": "amount",
+            "placeholder": "Enter Amount",
+            "id": "amount",
+            "validation": ["required", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Payment Method",
+            "type": "text",
+            "tableRef": "paymentMethod",
+            "placeholder": "Enter Payment Method",
+            "id": "paymentMethod",
+            "validation": ["required", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Transaction ID",
+            "type": "text",
+            "tableRef": "transactionId",
+            "placeholder": "Enter Transaction ID",
+            "id": "transactionId",
+            "validation": ["required", "trim", ""],
+            "url": ""
+        }, {
+            "name": "Other",
+            "type": "text",
+            "tableRef": "other",
+            "placeholder": "Enter Other Details",
+            "id": "other",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }]
     }],
     "action": [{
         "name": "submit",

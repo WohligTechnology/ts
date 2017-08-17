@@ -1,0 +1,102 @@
+{
+    "title": "Edit Videos",
+    "name": "Videos",
+    "jsonPage": "viewVideos",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "URL",
+        "type": "text",
+        "tableRef": "url",
+        "placeholder": "Enter URL",
+        "id": "url",
+        "validation": ["required", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Thumbnail",
+        "type": "image",
+        "tableRef": "thumbnail",
+        "size": "250 x 250",
+        "placeholder": "Upload Thumbnail",
+        "id": "thumbnail",
+        "view": true,
+        "disabled": true,
+        "validation": ["required", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Description",
+        "isSort": "",
+        "tableRef": "description",
+        "type": "wysiwyg",
+        "placeholder": "Enter Description",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Related Videos",
+        "type": "tags",
+        "tableRef": "relatedVideos",
+        "placeholder": "Select Related Videos",
+        "id": "relatedVideos",
+        "searchApi": "searchCall",
+        "fieldType": "",
+        "url": "Videos/search",
+        "dropDownField": "name",
+        "view": true,
+        "dropDownType": "multiple",
+        "validation": ["", "trim", "unique"]
+    }, {
+        "name": "Time",
+        "type": "text",
+        "tableRef": "time",
+        "placeholder": "Enter Time",
+        "id": "time",
+        "validation": ["required", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Views",
+        "type": "text",
+        "tableRef": "views",
+        "placeholder": "Enter Views",
+        "id": "views",
+        "validation": ["required", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitVideos",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewVideos"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewVideos"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Videos/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Videos/getOne",
+        "params": "_id"
+    }
+
+}

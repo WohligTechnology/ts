@@ -1,0 +1,81 @@
+{
+    "title": "Videos",
+    "description": "List of Videos",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "URL",
+        "isSort": "",
+        "tableRef": "url",
+        "type":"youtube"
+    }, {
+        "name": "Thumbnail",
+        "isSort": "",
+        "tableRef": "thumbnail",
+        "type": "image"
+    }, {
+        "name": "Description",
+        "isSort": "",
+        "tableRef": "description"
+    }, {
+        "name": "Time",
+        "isSort": "",
+        "tableRef": "time"
+    }, {
+        "name": "Views",
+        "isSort": "",
+        "tableRef": "views"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editVideos",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Videos",
+        "content": "Are you sure you want to delete Videos?",
+        "api": "Videos/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Excel Export",
+        "icon": "print",
+        "class": "btn-danger",
+        "type": "redirect",
+        "action": "Videos/generateExcel",
+        "linkType": "admin"
+    }, {
+        "name": "Upload Excel",
+        "icon": "delete",
+        "class": "btn-warning",
+        "type": "redirect",
+        "action": "excel-upload/Videos",
+        "linkType": "internal"
+    }, {
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createVideos"
+    }],
+    "apiCall": {
+        "url": "Videos/search",
+        "params": "_id"
+    }
+}

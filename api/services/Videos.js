@@ -5,36 +5,42 @@ var schema = new Schema({
         unique: true,
         uniqueCaseInsensitive: true
     },
-    url:{
-        type:String,
+    url: {
+        type: String,
         default: ""
     },
-    thumbnail:{
-        type:String,
+    thumbnail: {
+        type: String,
         default: ""
     },
-    description:{
-        type:String,
+    description: {
+        type: String,
         default: ""
     },
-    relatedVideos:[{
-                type: Schema.Types.ObjectId,
-                ref: 'Videos'
+    relatedVideos: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Videos'
     }],
-    time:{
-        type:String
+    time: {
+        type: String
     },
-    views:{
-        type:String,
+    views: {
+        type: String,
         default: ""
     }
 });
 
-schema.plugin(deepPopulate, {});
+schema.plugin(deepPopulate, {
+    Populate: {
+        'relatedVideos': {
+            select: '_id name'
+        }
+    }
+});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Videos', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema,"relatedVideos","relatedVideos"));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);

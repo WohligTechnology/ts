@@ -4,57 +4,63 @@ var schema = new Schema({
         required: true,
         unique: true,
         uniqueCaseInsensitive: true
-        
+
     },
-    title:{
-        type:String,
+    title: {
+        type: String,
         default: ""
     },
-    description:{
-        type:String,
+    description: {
+        type: String,
         default: ""
     },
-    image:{
-        type:String,
+    image: {
+        type: String,
         default: ""
     },
-    author:{
-        type:String,
+    author: {
+        type: String,
         default: ""
     },
-    sequence:{
-        type:Number
+    sequence: {
+        type: Number
     },
-    courseTime:{
-        type:Number
+    courseTime: {
+        type: Number
     },
-    course:{
-            type: Schema.Types.ObjectId,
-            ref: 'Course'
+    course: {
+        type: Schema.Types.ObjectId,
+        ref: 'Course'
     },
-    moduleAuthor:{
-        type:String,
+    moduleAuthor: {
+        type: String,
         default: ""
     },
-    authorImage:{
-        type:String,
+    authorImage: {
+        type: String,
         default: ""
     },
-    authorTitle:{
-        type:String,
+    authorTitle: {
+        type: String,
         default: ""
     },
-    authorDescription:{
-        type:String,
+    authorDescription: {
+        type: String,
         default: ""
     }
 });
 
-schema.plugin(deepPopulate, {});
+schema.plugin(deepPopulate, {
+    Populate: {
+        'course': {
+            select: '_id name'
+        }
+    }
+});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Module', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema,"course","course"));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);

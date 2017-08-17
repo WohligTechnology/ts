@@ -4,12 +4,12 @@ var schema = new Schema({
         required: true,
         unique: true,
         uniqueCaseInsensitive: true
-        },
+    },
     content: {
-        type:String,
-        required:true
+        type: String,
+        required: true
     }
-    
+
 });
 
 schema.plugin(deepPopulate, {});

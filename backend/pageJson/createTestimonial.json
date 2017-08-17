@@ -1,0 +1,82 @@
+{
+    "title": "Create Testimonial",
+    "name": "Testimonial",
+    "jsonPage": "viewTestimonial",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Testimonial"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Designation",
+        "type": "text",
+        "tableRef": "designation",
+        "placeholder": "Enter Designation",
+        "id": "designation",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Company",
+        "type": "text",
+        "tableRef": "company",
+        "placeholder": "Enter Company",
+        "id": "company",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Testimonial",
+        "type": "text",
+        "tableRef": "testimonial",
+        "placeholder": "Enter Testimonial",
+        "id": "testimonial",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Image",
+        "type": "image",
+        "tableRef": "image",
+        "size": "250 x 250",
+        "placeholder": "Upload Image",
+        "id": "image",
+        "view": true,
+        "disabled": true,
+        "validation": ["required", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Sequence",
+        "type": "text",
+        "tableRef": "sequence",
+        "placeholder": "Enter Sequence",
+        "id": "sequence",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitTestimonial",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTestimonial"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTestimonial"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Testimonial/save"
+    }
+}
