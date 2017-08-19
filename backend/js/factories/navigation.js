@@ -42,11 +42,6 @@ myApp.factory('NavigationService', function ($http) {
         sref: "#!/page/viewTestimonial//",
         icon: "phone"
     },{
-        name: "Videos",
-        classis: "active",
-        sref: "#!/page/viewVideos//",
-        icon: "file"
-    },{
         name: "Tags",
         classis: "active",
         sref: "#!/page/viewTags//",
