@@ -1,0 +1,45 @@
+{
+    "title": "Edit Tags",
+    "name": "Tags",
+    "jsonPage": "viewTags",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Page Name",
+        "id": "name",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitTags",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTags"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTags"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Tags/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Tags/getOne",
+        "params": "_id"
+    }
+
+}

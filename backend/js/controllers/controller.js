@@ -393,6 +393,7 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
             }
         }
         $scope.form = {};
+        console.log("DetailFieldCtrl value: ", $scope.value);
         if ($scope.value && $scope.value[$scope.type.tableRef]) {
             $scope.form.model = $scope.value[$scope.type.tableRef];
         }
@@ -497,9 +498,17 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
         $scope.editBox = function (state, data) {
             $scope.state = state;
             $scope.data = data;
+            if (!$scope.formData[$scope.type.tableRef]) {
+                $scope.formData[$scope.type.tableRef] = []
+            }
+
+            // if (state == 'Create') {
+            //     $scope.formData[$scope.type.tableRef].push(data);
+            // }
+
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/modal.html',
+                templateUrl: '/views/modal/modal.html',
                 size: 'lg',
                 scope: $scope
             });
@@ -512,6 +521,7 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
             console.log(data);
             data.splice(index, 1);
         };
+
 
         //  TAGS STATIC AND FROM TABLE
         $scope.refreshTags = function (search) {

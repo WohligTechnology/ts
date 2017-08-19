@@ -50,6 +50,14 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
+        "name": "Video URL",
+        "type": "text",
+        "tableRef": "videoUrl",
+        "placeholder": "Enter Video URL",
+        "id": "videoUrl",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
         "name": "Sequence",
         "type": "text",
         "tableRef": "sequence",

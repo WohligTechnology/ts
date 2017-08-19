@@ -17,6 +17,11 @@
         "isSort": "",
         "tableRef": "image",
         "type": "image"
+    }, {
+        "name": "Video URL",
+        "isSort": "",
+        "tableRef": "videoUrl",
+        "type":"youtube"
     }],
     "action": [{
         "name": "edit",

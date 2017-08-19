@@ -1,6 +1,6 @@
 {
-    "title": "Module",
-    "description": "List of Modules",
+    "title": "Tags",
+    "description": "List of Tags",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
@@ -8,27 +8,13 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    }, {
-        "name": "Title",
-        "isSort": "",
-        "tableRef": "title"
-    }, {
-        "name": "Image",
-        "isSort": "",
-        "tableRef": "image",
-        "type": "image"
-    }, {
-        "name": "Video URL",
-        "isSort": "",
-        "tableRef": "videoUrl",
-        "type":"youtube"
     }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
         "buttonClass": "btn-primary",
         "type": "page",
-        "action": "editModule",
+        "action": "editTags",
         "fieldsToSend": {
             "_id": "_id"
         }
@@ -37,9 +23,9 @@
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
-        "title": "Delete Module",
-        "content": "Are you sure you want to delete Module?",
-        "api": "Module/delete",
+        "title": "Delete Tags",
+        "content": "Are you sure you want to delete Tags?",
+        "api": "Tags/delete",
         "fieldsToSend": {
             "name": "_id",
             "value": "_id"
@@ -50,24 +36,24 @@
         "icon": "print",
         "class": "btn-danger",
         "type": "redirect",
-        "action": "Module/generateExcel",
+        "action": "Tags/generateExcel",
         "linkType": "admin"
     }, {
         "name": "Upload Excel",
         "icon": "delete",
         "class": "btn-warning",
         "type": "redirect",
-        "action": "excel-upload/Module",
+        "action": "excel-upload/Tags",
         "linkType": "internal"
     }, {
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",
         "type": "page",
-        "action": "createModule"
+        "action": "createTags"
     }],
     "apiCall": {
-        "url": "Module/search",
+        "url": "Tags/search",
         "params": "_id"
     }
 }

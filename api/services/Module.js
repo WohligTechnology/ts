@@ -18,6 +18,10 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    videoUrl: {
+        type: String,
+        default: ""
+    },
     author: {
         type: String,
         default: ""
@@ -61,6 +65,6 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Module', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema,"course","course"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "course", "course"));
 var model = {};
 module.exports = _.assign(module.exports, exports, model);

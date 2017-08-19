@@ -1,0 +1,39 @@
+{
+    "title": "Create Tags",
+    "name": "Tags",
+    "jsonPage": "viewTags",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Tags"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Tag Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitTags",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTags"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTags"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Tags/save"
+    }
+}

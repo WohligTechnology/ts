@@ -437,7 +437,12 @@ myApp.directive('viewField', function ($http, $filter) {
             if (!$scope.type.type) {
                 $scope.type.type = "text";
             }
+            $scope.$watch('value', function (newVal, oldVal) {
+                console.log("viewField directive: ", newVal, oldVal);
+                $scope.value = newVal;
+            })
             $scope.form = {};
+            console.log("viewField directive value: ", $scope.value);
             $scope.objectDepth = function () {
                 if (_.isObjectLike($scope.storeObj)) {
                     if ($scope.storeValue[$scope.storeObj.field]) {
@@ -450,14 +455,16 @@ myApp.directive('viewField', function ($http, $filter) {
                 }
             };
             if (_.isObjectLike($scope.value[$scope.type.tableRef])) {
+                console.log("Value is object");
                 $scope.storeObj = $scope.type;
                 $scope.storeValue = $scope.value;
                 $scope.objectDepth();
 
             } else {
+                console.log("value is not object: ", $scope.value);
                 $scope.form.model = $scope.value[$scope.type.tableRef];
             }
-
+console.log("Viewfield directive form.model: ", $scope.form.model, $scope.value);
             $scope.template = "views/viewField/" + $scope.type.type + ".html";
         }
     };

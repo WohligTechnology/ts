@@ -44,6 +44,14 @@
         "validation": ["required", "trim", ""],
         "url": ""
     }, {
+        "name": "Video URL",
+        "type": "text",
+        "tableRef": "videoUrl",
+        "placeholder": "Enter Video URL",
+        "id": "videoUrl",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
         "name": "Sequence",
         "type": "text",
         "tableRef": "sequence",
@@ -63,8 +71,33 @@
         "dropDownField": "name",
         "view": true,
         "dropDownType": "multiple",
-        "validation": ["", "", "trim"],
-        "onView": true
+        "validation": ["required", "", "unique"]
+    }, {
+        "name": "Related Course",
+        "type": "tags",
+        "tableRef": "relatedCourse",
+        "placeholder": "Select Related Courses",
+        "id": "relatedCourse",
+        "searchApi": "searchCall",
+        "fieldType": "",
+        "url": "Course/search",
+        "dropDownField": "name",
+        "view": true,
+        "dropDownType": "multiple",
+        "validation": ["", "", "unique"]
+    }, {
+        "name": "Tags",
+        "type": "tags",
+        "tableRef": "tags",
+        "placeholder": "Select Tags",
+        "id": "tags",
+        "searchApi": "searchCall",
+        "fieldType": "",
+        "url": "Tags/search",
+        "dropDownField": "name",
+        "view": true,
+        "dropDownType": "multiple",
+        "validation": ["", "", ""]
     }],
     "action": [{
         "name": "submit",

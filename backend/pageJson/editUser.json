@@ -8,6 +8,7 @@
     "fields": [{
         "name": "Name",
         "type": "text",
+        "onView": true,
         "tableRef": "name",
         "placeholder": "Enter Name",
         "id": "name",
@@ -16,6 +17,7 @@
     }, {
         "name": "Email",
         "type": "text",
+        "onView": true,
         "tableRef": "email",
         "placeholder": "Enter Email",
         "id": "email",
@@ -24,6 +26,7 @@
     }, {
         "name": "DOB",
         "type": "date",
+        "onView": true,
         "tableRef": "dob",
         "placeholder": "Enter DOB",
         "id": "dob",
@@ -32,6 +35,7 @@
     }, {
         "name": "Photo",
         "type": "image",
+        "onView": true,
         "tableRef": "photo",
         "size": "250 x 250",
         "placeholder": "Upload photo",
@@ -43,6 +47,7 @@
     }, {
         "name": "Password",
         "type": "password",
+        "onView": true,
         "tableRef": "password",
         "placeholder": "Enter password",
         "id": "password",
@@ -51,6 +56,7 @@
     }, {
         "name": "Forgot Password",
         "type": "password",
+        "onView": true,
         "tableRef": "forgotPassword",
         "placeholder": "Enter forgot password",
         "id": "forgotPassword",
@@ -106,10 +112,11 @@
         "type": "box",
         "tableRef": "subscribed",
         "validation": ["", "trim", ""],
-        "field": [{
+        "fields": [{
             "name": "Course",
             "type": "tags",
             "tableRef": "course",
+            "onView": true,
             "dropDownType": "single",
             "dropDownField": "name",
             "searchApi": "searchCall",
@@ -119,44 +126,49 @@
             "url": "Course/search"
         }, {
             "name": "End Time",
-            "type": "text",
+            "type": "date",
             "tableRef": "endTime",
-            "placeholder": "Enter End Time",
+            "placeholder": "Enter End Date and Time",
             "id": "endTime",
-            "validation": ["required", "trim", ""],
-            "url": ""
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
         }, {
             "name": "Amount",
             "type": "text",
             "tableRef": "amount",
             "placeholder": "Enter Amount",
             "id": "amount",
-            "validation": ["required", "trim", ""],
-            "url": ""
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
         }, {
             "name": "Payment Method",
             "type": "text",
             "tableRef": "paymentMethod",
             "placeholder": "Enter Payment Method",
             "id": "paymentMethod",
-            "validation": ["required", "trim", ""],
-            "url": ""
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
         }, {
             "name": "Transaction ID",
             "type": "text",
             "tableRef": "transactionId",
             "placeholder": "Enter Transaction ID",
             "id": "transactionId",
-            "validation": ["required", "trim", ""],
-            "url": ""
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
         }, {
             "name": "Other",
             "type": "text",
             "tableRef": "other",
-            "placeholder": "Enter Other Details",
+            "placeholder": "Enter Other Details If Any",
             "id": "other",
             "validation": ["", "trim", ""],
-            "url": ""
+            "url": "",
+            "onView": true
         }]
     }],
     "action": [{

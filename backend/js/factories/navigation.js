@@ -46,6 +46,11 @@ myApp.factory('NavigationService', function ($http) {
         classis: "active",
         sref: "#!/page/viewVideos//",
         icon: "file"
+    },{
+        name: "Tags",
+        classis: "active",
+        sref: "#!/page/viewTags//",
+        icon: "file"
     }];
 
     return {

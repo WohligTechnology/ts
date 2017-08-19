@@ -104,8 +104,11 @@ var schema = new Schema({
 
 schema.plugin(deepPopulate, {
     populate: {
-        'user': {
-            select: 'name _id'
+        'subscribed':{
+            select:''
+        },
+        'subscribed.course':{
+            select:'_id name'
         }
     }
 });
@@ -114,7 +117,7 @@ schema.plugin(timestamps);
 
 module.exports = mongoose.model('User', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "user", "user"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "subscribed subscribed.course", "subscribed subscribed.course"));
 var model = {
 
     existsSocial: function (user, callback) {
