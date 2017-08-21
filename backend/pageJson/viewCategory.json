@@ -9,11 +9,6 @@
         "isSort": "",
         "tableRef": "name"
     }, {
-        "name": "Image",
-        "isSort": "",
-        "tableRef": "image",
-        "type": "image"
-    }, {
         "name": "Sequence",
         "isSort": "",
         "tableRef": "sequence"

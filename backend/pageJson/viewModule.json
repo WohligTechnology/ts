@@ -13,11 +13,6 @@
         "isSort": "",
         "tableRef": "title"
     }, {
-        "name": "Image",
-        "isSort": "",
-        "tableRef": "image",
-        "type": "image"
-    }, {
         "name": "Video URL",
         "isSort": "",
         "tableRef": "videoUrl",
