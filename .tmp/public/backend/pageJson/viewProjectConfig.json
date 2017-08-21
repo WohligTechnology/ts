@@ -1,0 +1,63 @@
+{
+    "title": "Project Configs",
+    "description": "List of Project Configs",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "Value",
+        "isSort": "",
+        "tableRef": "value"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editProjectConfig",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Pages",
+        "content": "Are you sure you want to delete ProjectConfig?",
+        "api": "ProjectConfig/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Excel Export",
+        "icon": "print",
+        "class": "btn-danger",
+        "type": "redirect",
+        "action": "ProjectConfig/generateExcel",
+        "linkType": "admin"
+    }, {
+        "name": "Upload Excel",
+        "icon": "delete",
+        "class": "btn-warning",
+        "type": "redirect",
+        "action": "excel-upload/ProjectConfig",
+        "linkType": "internal"
+    }, {
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createProjectConfig"
+    }],
+    "apiCall": {
+        "url": "ProjectConfig/search",
+        "params": "_id"
+    }
+}

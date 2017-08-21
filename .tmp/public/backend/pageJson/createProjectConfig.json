@@ -1,0 +1,47 @@
+{
+    "title": "Create Project Configs",
+    "name": "Pages",
+    "jsonPage": "viewProjectConfig",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["ProjectConfig"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Project Config Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Value",
+        "type": "text",
+        "tableRef": "value",
+        "placeholder": "Enter Value",
+        "id": "value",
+        "validation": ["required", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitProjectConfig",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewProjectConfig"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewProjectConfig"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "ProjectConfig/save"
+    }
+}
