@@ -1,6 +1,6 @@
 {
-    "title": "Course",
-    "description": "List of Courses",
+    "title": "Instructor",
+    "description": "List of Instructor",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
@@ -9,25 +9,16 @@
         "isSort": "",
         "tableRef": "name"
     }, {
-        "name": "Title",
+        "name": "Email",
         "isSort": "",
-        "tableRef": "title"
-    }, {
-        "name": "Price",
-        "isSort": "",
-        "tableRef": "price"
-    }, {
-        "name": "Video URL",
-        "isSort": "",
-        "tableRef": "videoUrl",
-        "type":"youtube"
+        "tableRef": "email"
     }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
         "buttonClass": "btn-primary",
         "type": "page",
-        "action": "editCourse",
+        "action": "editInstructor",
         "fieldsToSend": {
             "_id": "_id"
         }
@@ -36,9 +27,9 @@
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
-        "title": "Delete Course",
-        "content": "Are you sure you want to delete Course?",
-        "api": "Course/delete",
+        "title": "Delete Instructor",
+        "content": "Are you sure you want to delete Instructor?",
+        "api": "Instructor/delete",
         "fieldsToSend": {
             "name": "_id",
             "value": "_id"
@@ -49,24 +40,24 @@
         "icon": "print",
         "class": "btn-danger",
         "type": "redirect",
-        "action": "Course/generateExcel",
+        "action": "Instructor/generateExcel",
         "linkType": "admin"
     }, {
         "name": "Upload Excel",
         "icon": "delete",
         "class": "btn-warning",
         "type": "redirect",
-        "action": "excel-upload/User",
+        "action": "excel-upload/Instructor",
         "linkType": "internal"
     }, {
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",
         "type": "page",
-        "action": "createCourse"
+        "action": "createInstructor"
     }],
     "apiCall": {
-        "url": "Course/search",
+        "url": "Instructor/search",
         "params": "_id"
     }
 }

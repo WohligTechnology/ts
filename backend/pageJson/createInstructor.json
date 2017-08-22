@@ -1,0 +1,47 @@
+{
+    "title": "Create Instructor",
+    "name": "Instructor",
+    "jsonPage": "viewInstructor",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Instructor"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Email",
+        "type": "text",
+        "tableRef": "email",
+        "placeholder": "Enter Email",
+        "id": "email",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitInstructor",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewInstructor"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewInstructor"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Instructor/save"
+    }
+}

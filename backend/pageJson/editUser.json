@@ -124,6 +124,18 @@
             "id": "input1",
             "validation": ["required", "trim", ""],
             "url": "Course/search"
+        },{
+            "name": "Instructor",
+            "type": "tags",
+            "tableRef": "instructor",
+            "onView": true,
+            "dropDownType": "single",
+            "dropDownField": "name",
+            "searchApi": "searchCall",
+            "placeholder": "Select Instructor",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "Instructor/search"
         }, {
             "name": "End Time",
             "type": "date",

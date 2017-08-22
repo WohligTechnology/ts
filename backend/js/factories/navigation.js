@@ -12,6 +12,11 @@ myApp.factory('NavigationService', function ($http) {
         sref: "#!/page/viewUser//",
         icon: "users"
     },{
+        name: "Instructor",
+        classis: "active",
+        sref: "#!/page/viewInstructor//",
+        icon: "phone"
+    },{
         name: "Category",
         classis: "active",
         sref: "#!/page/viewCategory//",

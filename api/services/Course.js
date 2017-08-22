@@ -8,6 +8,10 @@ var schema = new Schema({
     title: {
         type: String
     },
+    price: {
+        type: String,
+        default: ""
+    },
     image: {
         type: String,
         default: ""

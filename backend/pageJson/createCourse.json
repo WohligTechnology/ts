@@ -22,6 +22,14 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
+        "name": "Price",
+        "type": "text",
+        "tableRef": "price",
+        "placeholder": "Enter Price",
+        "id": "price",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
         "name": "Image",
         "type": "image",
         "tableRef": "image",
