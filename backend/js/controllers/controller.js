@@ -249,7 +249,7 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
         globalfunction.openModal = function (callback) {
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
-                templateUrl: 'views/modal/modal.html',
+                templateUrl: 'backend/views/modal/modal.html',
                 size: 'lg',
                 scope: $scope
             });
@@ -508,7 +508,7 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
-                templateUrl: '/views/modal/modal.html',
+                templateUrl: 'backend/views/modal/modal.html',
                 size: 'lg',
                 scope: $scope
             });
