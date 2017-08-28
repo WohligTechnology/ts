@@ -1,42 +1,30 @@
 {
-    "title": "Course",
-    "description": "List of Courses",
+    "title": "Question",
+    "description": "List of Questions",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-        "name": "Name",
+        "name": "Test",
         "isSort": "",
-        "tableRef": "name"
+        "tableRef": "test",
+        "field": "name",
+        "type": "select"
     }, {
-        "name": "Title",
+        "name": "Question",
         "isSort": "",
-        "tableRef": "title"
+        "tableRef": "question"
     }, {
-        "name": "Price",
+        "name": "Marks",
         "isSort": "",
-        "tableRef": "price"
-    }, {
-        "name": "Video URL",
-        "isSort": "",
-        "tableRef": "videoUrl",
-        "type":"youtube"
+        "tableRef": "marks"
     }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
         "buttonClass": "btn-primary",
         "type": "page",
-        "action": "editCourse",
-        "fieldsToSend": {
-            "_id": "_id"
-        }
-    }, {
-        "name": "Questions",
-        "icon": "fa-pencil",
-        "buttonClass": "btn-primary",
-        "type": "redirect",
-        "action": "#!/questions",
+        "action": "editQuestion",
         "fieldsToSend": {
             "_id": "_id"
         }
@@ -45,9 +33,9 @@
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
-        "title": "Delete Course",
-        "content": "Are you sure you want to delete Course?",
-        "api": "Course/delete",
+        "title": "Delete Question",
+        "content": "Are you sure you want to delete Question?",
+        "api": "Question/delete",
         "fieldsToSend": {
             "name": "_id",
             "value": "_id"
@@ -58,24 +46,24 @@
         "icon": "print",
         "class": "btn-danger",
         "type": "redirect",
-        "action": "Course/generateExcel",
+        "action": "Question/generateExcel",
         "linkType": "admin"
     }, {
         "name": "Upload Excel",
         "icon": "delete",
         "class": "btn-warning",
         "type": "redirect",
-        "action": "excel-upload/User",
+        "action": "excel-upload/Question",
         "linkType": "internal"
     }, {
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",
         "type": "page",
-        "action": "createCourse"
+        "action": "createQuestion"
     }],
     "apiCall": {
-        "url": "Course/search",
+        "url": "Question/search",
         "params": "_id"
     }
 }

@@ -77,6 +77,68 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
 
     })
 
+    .controller('questionsCtrl', function ($scope, TemplateService, NavigationService, $timeout, $state, $interval) {
+
+        function toColor(num, red) {
+            num >>>= 0;
+            var b = num & 0xFF,
+                g = (num & 0xFF00) >>> 8,
+                r = (num & 0xFF0000) >>> 16,
+                a = ((num & 0xFF000000) >>> 24) / 255;
+            if (red == "red") {
+                r = 255;
+                b = 0;
+                g = 0;
+            }
+            return "rgba(" + [r, g, b, a].join(",") + ")";
+        }
+
+        $scope.circles = _.times(360, function (n) {
+
+            var radius = _.random(0, 10);
+            return {
+                width: radius,
+                height: radius,
+                background: toColor(_.random(-12525360, 12525360)),
+                top: _.random(0, $(window).height()),
+                left: _.random(0, $(window).width())
+            };
+        });
+
+        function generateCircle() {
+            _.each($scope.circles, function (n, index) {
+                var radius = _.random(0, 10);
+                n.width = radius;
+                n.height = radius;
+                n.background = toColor(_.random(-12525360, 12525360));
+                if (count % 7 === 0 || count % 7 === 5 || count % 7 === 6) {
+                    if (count % 7 === 6) {
+                        n.background = toColor(_.random(-12525360, 12525360), "red");
+                        // n.width = 3;
+                        // n.height = 3;
+                    }
+                    var t = index * Math.PI / 180;
+                    var x = (4.0 * Math.pow(Math.sin(t), 3));
+                    var y = ((3.0 * Math.cos(t)) - (1.3 * Math.cos(2 * t)) - (0.6 * Math.cos(3 * t)) - (0.2 * Math.cos(4 * t)));
+                    n.top = -50 * y + 300;
+                    n.left = 50 * x + $(window).width() / 2;
+                } else {
+                    n.top = _.random(0, $(window).height());
+                    n.left = _.random(0, $(window).width());
+                }
+            });
+        }
+
+        var count = 0;
+
+        $interval(function () {
+            count++;
+            console.log("Version 1.1");
+            generateCircle();
+        }, 5000);
+
+    })
+
     .controller('MultipleSelectCtrl', function ($scope, $window, TemplateService, NavigationService, $timeout, $state, $stateParams, $filter, toastr) {
         var i = 0;
         $scope.getValues = function (filter, insertFirst) {
@@ -352,8 +414,8 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
             $scope.json.json.action[1].stateName.json.page = "";
             $state.go($scope.json.json.action[1].stateName.page, $scope.json.json.action[1].stateName.json);
         };
-
         $scope.saveData = function (formData) {
+            console.log("in saveData",formData);
             NavigationService.apiCall($scope.json.json.apiCall.url, formData, function (data) {
                 var messText = "created";
                 if (data.value === true) {

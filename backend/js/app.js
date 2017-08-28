@@ -82,7 +82,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: "views/template.html",
             controller: 'ExcelUploadCtrl'
         })
-
+        .state('questions', {
+            url: "/questions",
+            templateUrl: "views/content/questions.html",
+            controller: 'questionsCtrl'
+        })
         .state('jagz', {
             url: "/jagz",
             templateUrl: "views/jagz.html",

@@ -1,0 +1,72 @@
+{
+    "title": "Edit Test",
+    "name": "Test",
+    "jsonPage": "viewTest",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Total Marks",
+        "type": "text",
+        "tableRef": "totalMarks",
+        "placeholder": "Enter Total Marks",
+        "id": "totalMarks",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Time (in minutes)",
+        "type": "text",
+        "tableRef": "time",
+        "placeholder": "Enter Time",
+        "id": "time",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Course",
+        "type": "tags",
+        "tableRef": "course",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Select Course",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Course/search"
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitTest",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTest"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewTest"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Test/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Test/getOne",
+        "params": "_id"
+    }
+
+}

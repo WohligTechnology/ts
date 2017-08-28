@@ -1,6 +1,6 @@
 {
-    "title": "Course",
-    "description": "List of Courses",
+    "title": "Test",
+    "description": "List of Tests",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
@@ -9,34 +9,20 @@
         "isSort": "",
         "tableRef": "name"
     }, {
-        "name": "Title",
+        "name": "Total Marks",
         "isSort": "",
-        "tableRef": "title"
+        "tableRef": "totalMarks"
     }, {
-        "name": "Price",
+        "name": "Time in Minutes",
         "isSort": "",
-        "tableRef": "price"
-    }, {
-        "name": "Video URL",
-        "isSort": "",
-        "tableRef": "videoUrl",
-        "type":"youtube"
+        "tableRef": "time"
     }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
         "buttonClass": "btn-primary",
         "type": "page",
-        "action": "editCourse",
-        "fieldsToSend": {
-            "_id": "_id"
-        }
-    }, {
-        "name": "Questions",
-        "icon": "fa-pencil",
-        "buttonClass": "btn-primary",
-        "type": "redirect",
-        "action": "#!/questions",
+        "action": "editTest",
         "fieldsToSend": {
             "_id": "_id"
         }
@@ -45,9 +31,9 @@
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
-        "title": "Delete Course",
-        "content": "Are you sure you want to delete Course?",
-        "api": "Course/delete",
+        "title": "Delete Test",
+        "content": "Are you sure you want to delete Test?",
+        "api": "Test/delete",
         "fieldsToSend": {
             "name": "_id",
             "value": "_id"
@@ -58,24 +44,24 @@
         "icon": "print",
         "class": "btn-danger",
         "type": "redirect",
-        "action": "Course/generateExcel",
+        "action": "Test/generateExcel",
         "linkType": "admin"
     }, {
         "name": "Upload Excel",
         "icon": "delete",
         "class": "btn-warning",
         "type": "redirect",
-        "action": "excel-upload/User",
+        "action": "excel-upload/Test",
         "linkType": "internal"
     }, {
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",
         "type": "page",
-        "action": "createCourse"
+        "action": "createTest"
     }],
     "apiCall": {
-        "url": "Course/search",
+        "url": "Test/search",
         "params": "_id"
     }
 }

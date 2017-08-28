@@ -182,6 +182,54 @@
             "url": "",
             "onView": true
         }]
+    }, {
+        "name": "Results",
+        "type": "box",
+        "tableRef": "result",
+        "validation": ["", "trim", ""],
+        "fields": [{
+            "name": "Test",
+            "type": "tags",
+            "tableRef": "test",
+            "onView": true,
+            "dropDownType": "single",
+            "dropDownField": "name",
+            "searchApi": "searchCall",
+            "placeholder": "Select Test",
+            "id": "input1",
+            "validation": ["required", "trim", ""],
+            "url": "Test/search"
+        },{
+            "name": "Course",
+            "type": "tags",
+            "tableRef": "course",
+            "onView": true,
+            "dropDownType": "single",
+            "dropDownField": "name",
+            "searchApi": "searchCall",
+            "placeholder": "Select Course",
+            "id": "input1",
+            "validation": ["required", "trim", ""],
+            "url": "Course/search"
+        }, {
+            "name": "Exam Timestamp",
+            "type": "date",
+            "tableRef": "timestamp",
+            "placeholder": "Enter Exam Timestamp",
+            "id": "timestamp",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Marks",
+            "type": "text",
+            "tableRef": "marks",
+            "placeholder": "Enter Marks",
+            "id": "marks",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }]
     }],
     "action": [{
         "name": "submit",

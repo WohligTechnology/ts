@@ -42,7 +42,9 @@
                                     <tr ng-repeat="item in items">
                                         <td>{{($index + 1)+((currentPage-1)*maxRow)}}</td>
                                         <td ng-repeat="field in json.json.fields">
-                                            <view-field type="field" value="item"></view-field>
+                                            <!--{{item}}-->
+                                            <view-field ng-if="field.type!='select'" type="field" value="item"></view-field>
+                                            <span ng-if="field.type=='select' && field.tableRef=='test'">{{item.test.name}}</span>
                                         </td>
                                         <td ng-repeat="but in json.json.action">
                                             <a class="btn" ng-class="but.buttonClass" ng-click="json.eventAction(but,item) ">

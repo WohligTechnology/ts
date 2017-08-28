@@ -103,6 +103,22 @@ var schema = new Schema({
         other:{
             type:String
         }
+    }],
+    result:[{
+        course:{
+            type: Schema.Types.ObjectId,
+            ref: 'Course'
+        },
+        test:{
+            type: Schema.Types.ObjectId,
+            ref: 'Test'
+        },
+        timestamp:{
+            type:Date
+        },
+        marks:{
+            type:String
+        }
     }]
 });
 
@@ -116,6 +132,15 @@ schema.plugin(deepPopulate, {
         },
         'subscribed.instructor':{
             select:'_id name'
+        },
+        'result':{
+            select:''
+        },
+        'result.course':{
+            select:'_id name'
+        },
+        'result.test':{
+            select:'_id name'
         }
     }
 });
@@ -124,7 +149,7 @@ schema.plugin(timestamps);
 
 module.exports = mongoose.model('User', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "subscribed subscribed.course subscribed.instructor", "subscribed subscribed.course subscribed.instructor"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "subscribed subscribed.course subscribed.instructor result result.course result.test", "subscribed subscribed.course subscribed.instructor result result.course result.test"));
 var model = {
 
     existsSocial: function (user, callback) {
