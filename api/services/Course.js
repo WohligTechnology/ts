@@ -59,5 +59,48 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('Course', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "categories relatedCourse tags", "categories relatedCourse tags"));
-var model = {};
+var model = {
+
+    getAllCourse: function (data, callback) {
+        Course.find().deepPopulate("categories relatedCourse tags").exec(function (err, found) {
+
+            if (err) {
+
+                callback(err, null);
+            } else {
+
+                if (found) {
+                    console.log("Found", found);
+                    callback(null, found);
+                } else {
+                    callback(null, {
+                        message: "No Data Found"
+                    });
+                }
+            }
+        })
+    },
+
+    findOneCourse: function (data, callback) {
+        Course.findOne({
+            _id: data._id
+        }).deepPopulate("categories relatedCourse tags").exec(function (err, found) {
+
+            if (err) {
+
+                callback(err, null);
+            } else {
+
+                if (found) {
+                    console.log("Found", found);
+                    callback(null, found);
+                } else {
+                    callback(null, {
+                        message: "No Data Found"
+                    });
+                }
+            }
+        })
+    }
+};
 module.exports = _.assign(module.exports, exports, model);

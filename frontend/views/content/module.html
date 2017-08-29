@@ -1,0 +1,95 @@
+<section>
+    <!--backgound img-->
+    <div class="banner-img ">
+        <div class="container">
+            <div class="row">
+                <div class="mar-lr">
+                    <div class="col-md-6 col-md-offset-6">
+                        <div class="banner-img-text pull-right">
+                            <h2 class="learn-form">LEARN FROM</h2>
+                            <h2 class="learn-form the-best">THE BEST</h2>
+                            <h2 class="pace margin0">AT YOUR PACE AND</h2>
+                            <h2 class="conveiniance margin0">YOUR CONVEINIANCE</h2>
+                            <div class="btn-red pull-right"> <button type="button" class="btn btn-danger ">Start My Free Trial</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <!--category section start-->
+    <div class="row">
+        <div class="col-md-4 col-md-offset-8">
+            <div class="mar-lr">
+                <div class="mar-tb ">
+                    <div class="dropdown pull-right mar-b">
+                        <button class="btn btn-default dropdown-toggle btn-white" type="button" data-toggle="dropdown">Sort by: release date(newest first)
+<button class="btn-default btn-gray"> <span><i class="fa fa-angle-down" aria-hidden="true"></i></span></button>
+                        <button class="btn-default btn-filter"> <span><i class="fa fa-filter" aria-hidden="true"></i></span></button>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Sort by: release date(newest first)</a></li>
+                            <li><a href="#">Sort by: release date(newest first)</a></li>
+                            <li><a href="#">Sort by: release date(newest first)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="row" ng-repeat="category in categoryImg">
+            <div class="col-md-12">
+                <div class="mar-lr">
+                    <div class="heading-category">
+                        <h4>{{category.title}}</h4>
+                    </div>
+                    <div class="bg-gray box-shadow">
+                        <div class="category-img">
+                            <img ng-src="{{category.image}}" alt="{{category.title}}" class="img-responsive" ui-sref="module-detail">
+                            <div class="course-imgoverlay"></div>
+                        </div>
+                        <div class="ctergory-text">
+                            <h5 class="margin0">{{category.title1}}</h5>
+                            <p>{{category.title2}}</p>
+                            <span class=" color-b">{{category.title3}}</span>
+                            <span class="pull-right padd-r">{{category.title6}}</span>
+                            <span class="pull-right text-bold">{{category.title5}}</span>
+                            <span class="pull-right padd-r">{{category.title4}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!--cource details section start-->
+<section>
+    <div class="bg-gray mar-t mar-b ">
+        <div class="container">
+            <div class="mar-lr">
+                <div class="cource-detail">
+                    <h4>Course Details</h4>
+                </div>
+                <div class="cource-detail-heading">
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
+                </div>
+                <div class="cource-detail-text">
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+                        Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
+                        at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
+                        from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered
+                        the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum
+                        et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise
+                        on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem
+                        ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,183 @@
+<div class="login-modal">
+    <div class="cancel-div pull-right">
+        <div class="modal-cancel" ng-click="$dismiss();"><i class="fa fa-times" aria-hidden="true"></i></div>
+    </div>
+    <div class="company_logo"><img src="img/logo.png" alt="LOGO" height="40"></div>
+    <div>
+        <div class="ts-navtabs">
+            <uib-tabset justified="false" active="activeTab">
+                <uib-tab index="0" heading="Login">
+                    <div class="login">
+                        <form name="loginForm">
+                            <div class="row">
+                                <div class="input-field">
+                                    <div class="col-md-2">Name</div>
+                                    <div class="col-md-10">
+                                        <div class="inner-addon left-addon">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <input type="text" class="form-control" name="name" ng-model="formData.name" data-toggle="tooltip" title="Please enter your name"
+                                                required/>
+                                            <span class="alignment" ng-show="loginForm.name.$touched && loginForm.name.$invalid">Please enter your name</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field">
+                                    <div class="col-md-2">Password</div>
+                                    <div class="col-md-10">
+                                        <div class="inner-addon left-addon">
+                                            <i class="fa fa-lock" aria-hidden="true"></i>
+                                            <input type="password" name="password" ng-model="formData.password" class="form-control" data-toggle="tooltip" title="Please enter your password"
+                                                required/>
+                                            <span class="alignment" ng-show="loginForm.password.$touched && loginForm.password.$invalid">Please enter your password</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="login-btn pull-right">
+                                        <div class="login_btn"><button type="submit" class="btn btn-danger" item-width="30px"><b>Login</b></button></div>
+                                        <div class="forgot-text"><a href="">Forgot Your Password?</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Sign Up">
+                    <div class="signUp-title"><b>Start your 15 days free trial</b></div>
+                    <form class="signUpForm" name="signUp">
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="fullname" class="control-label">Full Name</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="text" class="form-control" name="fullname" ng-model="formData.fullname" data-toggle="tooltip" title="Please enter your fullname"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.fullname.$touched && signUp.fullname.$invalid">Please enter your fullname</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="email" class="control-label">Email</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="email" class="form-control" name="email" ng-model="formData.email" data-toggle="tooltip" title="Please enter your Email"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.email.$touched && signUp.email.$invalid">Please enter your email</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="remail" class="control-label">Re-enter Email</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="email" class="form-control" name="remail" ng-model="formData.remail" data-toggle="tooltip" title="Please re-enter your Email"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.remail.$touched && signUp.remail.$invalid">Please re-enter your email</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="remail" class="control-label">Password</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="password" class="form-control" name="spassword" ng-model="formData.spassword" data-toggle="tooltip" title="Please enter your password"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.spassword.$touched && signUp.spassword.$invalid">Please enter your password</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="cpassword" class="control-label">Confirm Password</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="password" class="form-control" name="cpassword" ng-model="formData.cpassword" data-toggle="tooltip" title="Please re-enter your Password"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.cpassword.$touched && signUp.cpassword.$invalid">Please re-enter your password</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="country" class="control-label">Country</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="text" class="form-control" name="country" ng-model="formData.country" data-toggle="tooltip" title="Please enter your country"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.country.$touched && signUp.country.$invalid">Please enter your country</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="city" class="control-label">City</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="text" class="form-control" name="city" ng-model="formData.city" data-toggle="tooltip" title="Please enter your city"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.city.$touched && signUp.city.$invalid">Please enter your city</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="age" class="control-label">Age</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="number" class="form-control" name="age" ng-model="formData.age" data-toggle="tooltip" title="Please enter your age"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.age.$touched && signUp.age.$invalid">Please enter your age</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="gender" class="control-label">Gender</label>
+                                </div>
+                                <div class="input-cls">
+                                    <input type="text" class="form-control" name="gender" ng-model="formData.gender" data-toggle="tooltip" title="Please enter your gender"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.gender.$touched && signUp.gender.$invalid">Please enter your gender</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="signupfrm">
+                                <div class="label-cls">
+                                    <label for="message" class="control-label">How do you know about us</label>
+                                </div>
+                                <div class="input-cls">
+                                    <textarea class="form-control" name="message" ng-model="formData.message" data-toggle="tooltip" title="Please enter your message"
+                                        required/>
+                                </div>
+                                <span class="alignment" ng-show="signUp.message.$touched && signUp.message.$invalid">Please enter your message</span>
+                            </div>
+                        </div>
+                        <div class="tc">
+                            <input type="checkbox" id="agree" /><label for="agree">I agree with the <a href="">Terms &amp; Conditions</a></label>
+                        </div>
+                        <div class="signUp text-center">
+                            <button type="button" class="btn btn-danger"><b>Sign Up</b></button>
+                        </div>
+                    </form>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</div>

@@ -1,36 +1,116 @@
-<div class="container">
-
-    <a class="btn btn-default" ng-click="buttonClick()">Demo Button</a>
-
-    <flex-slider flex-slide="s in mySlides" prev-text="" next-text="">
-        <li>
-            <img ng-src="{{s}}" class="img-full">
-        </li>
-    </flex-slider>
-
-    <swiper autoplay="5000" effect="slide" slides-per-view="1" loop="true">
-        <slides>
-            <slide ng-repeat="s in mySlides">
-                <img ng-src="{{s}}" class="img-full" noloading="true">
-            </slide>
-        </slides>
-        <prev></prev>
-        <next></next>
-        <pagination></pagination>
-    </swiper>
-
-    <div class="row">
-        <div class="col-md-2" ng-repeat="s in mySlides">
-            <a ng-href="{{s}}" data-fancybox="group" rel="gallary" fancybox>
-                <img ng-src="{{s}}" class="img-full">
-            </a>
+<!-- Start of Home Container -->
+<div class="home">
+    <!-- Start of Learn a Skill Online Background Image -->
+    <section class="container-fluid">
+        <div class="home_bg">
+            <div class="bg-overlay"></div>
+            <div class="bgImage-text text-center">
+                <h1><b>Learn a new skill online, on your time !</b></h1>
+                <h3>Take in depth online courses and meet any challenge with skill.</h3>
+                <h3 class="text-margin"><b>Try FREE for 15 days</b></h3>
+                <button type="button" class="btn btn-danger">Start My Free Trial</button>
+            </div>
         </div>
-        <div class="col-md-2">
-            <a class="various" data-fancybox="group"  rel="gallary" href="http://www.youtube.com/embed/L9szn1QQfas?autoplay=1" fancybox><img ng-src="http://img.youtube.com/vi/L9szn1QQfas/maxresdefault.jpg" class="img-full"></a>
+    </section>
+    <section class="container">
+        <div class="bgImg-steps text-center">
+            <div class="row">
+                <div class="text-center">
+                    <div class="col-md-4" ng-repeat="home in homeBackImg">
+                        <div class="text-center">
+                            <div class="img-width">
+                                <img ng-src="{{home.image}}" alt="{{home.alt}}">
+                            </div>
+                            <h4><br><b>{{home.heading}}</b></h4>
+                            <p>{{home.content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-          <div class="col-md-2">
-            <a class="various" data-fancybox="group"  rel="gallary" href="https://vimeo.com/191947042" class="img-full"></a>
+    </section>
+    <!-- End of Learn a Skill Online Background Image -->
+    <!-- Start of Courses Section -->
+    <section class="container">
+        <div class="courses">
+            <div class="course-title">
+                <h3>Courses</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-4" ng-repeat="course in Courses">
+                    <div class="banner-add" ui-sref="module">
+                        <div class="shortcode-content banner-effect1"> <a href=""> <img ng-src={{course.img}} alt=""> </a>
+                            <div class="banner-des">
+                                <div class="display-table">
+                                    <div class="display-cell text-center align-middle">
+                                        <div class="texts">
+                                            <h4>{{course.text}}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    <!-- End of Courses Section -->
 
+    <!-- Start of Facilities with red overlay image Section -->
+    <section class="container-fluid">
+        <div class="facilities">
+            <div class="row">
+                <div class="redBg-img">
+                    <img src="img/facilities.jpg" class="img-responsive" alt="Facilities Image">
+                    <div class="redBg-content text-center">
+                        <div class="col-md-4" ng-repeat="facy in Facilities">
+                            <div class="img-height text-center">
+                                <img ng-src="{{facy.image}}" alt="{{facy.alt}}"></div>
+                            <h4><b>{{facy.heading}}</b></h4>
+                            <p>{{facy.content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Facilities with red overlay image Section -->
+    <!-- Start of About Us Flexslider Section -->
+    <section class="container">
+        <div class="about">
+            <div class="about-title">
+                <h3>About Us</h3>
+            </div>
+            <flex-slider id="test" animation="slide" flex-slide="slide in slides track by $index" animation-loop="false" prev-text=""
+                next-text="">
+                <li class="text-center">
+                    <p class="about-head"><b>{{slide.head}}</b></p>
+                    <p class="about-content">{{slide.content}}</p>
+                </li>
+            </flex-slider>
+        </div>
+    </section>
+    <!-- End of About Us Flexslider Section -->
+    <!-- Start of Testimonials Section -->
+    <section class="test-cont">
+        <div class="container">
+            <div class="testim-title">
+                <h3>Testimonials</h3>
+            </div>
+            <div class="testimonials">
+                <flex-slider id="test" animation="slide" flex-slide="card in cards track by $index" animation-loop="false" prev-text="" next-text=""
+                    item-width="360">
+                    <li>
+                        <div class="flexslider-cards">
+                            <card ng-model="card">
+                            </card>
+                        </div>
+                    </li>
+                </flex-slider>
+            </div>
+        </div>
+    </section>
+    <!-- End of Testimonials Section -->
 </div>
+<!-- End of Home Container -->

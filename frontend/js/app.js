@@ -5,12 +5,10 @@ var myApp = angular.module('myApp', [
     'angulartics',
     'angulartics.google.analytics',
     'ui.bootstrap',
-    'ngAnimate',
-    'ngSanitize',
     'angular-flexslider',
-    'ui.swiper',
     'angularPromiseButtons',
-    'toastr'
+    'toastr',
+    'angular-flexslider',
 ]);
 
 // Define all the routes below
@@ -24,6 +22,52 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/",
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
+        })
+        .state('module', {
+            url: "/module",
+            templateUrl: tempateURL,
+            controller: 'moduleCtrl'
+        })
+        .state('module-detail', {
+            url: "/module-detail",
+            templateUrl: tempateURL,
+            controller: 'moduleDetailCtrl'
+        })
+        .state('module-test', {
+            url: "/module-test",
+            templateUrl: tempateURL,
+            controller: 'moduleTestCtrl'
+        })
+        .state('about-us', {
+            url: "/about-us",
+            templateUrl: tempateURL,
+            controller: 'AboutUsCtrl'
+        })
+        .state('faq', {
+            url: "/faq",
+            templateUrl: tempateURL,
+            controller: 'FaqCtrl'
+        })
+        .state('module-score', {
+            url: "/module-score",
+            templateUrl: tempateURL,
+            controller: 'moduleScoreCtrl'
+        })
+        .state('account', {
+            url: "/account",
+            templateUrl: tempateURL,
+            controller: 'AccountCtrl'
+        })
+
+        .state('enquiry', {
+            url: "/enquiry",
+            templateUrl: tempateURL,
+            controller: 'enquiryCtrl'
+        })
+        .state('privacypolicy', {
+            url: "/privacypolicy",
+            templateUrl: tempateURL,
+            controller: 'PrivacypolicyCtrl'
         })
         .state('form', {
             url: "/form",

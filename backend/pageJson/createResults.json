@@ -1,0 +1,53 @@
+{
+    "title": "Create Results",
+    "name": "Results",
+    "jsonPage": "viewResults",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Results"],
+    "fields": [{
+        "name": "User",
+        "type": "tags",
+        "tableRef": "user",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Select User",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "User/search"
+    }, {
+        "name": "Test",
+        "type": "tags",
+        "tableRef": "test",
+        "dropDownType": "single",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Select Test",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Test/search"
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitResults",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewResults"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewResults"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Results/save"
+    }
+}

@@ -22,11 +22,11 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Time (in minutes)",
+        "name": "Duration (in minutes)",
         "type": "text",
-        "tableRef": "time",
-        "placeholder": "Enter Time",
-        "id": "time",
+        "tableRef": "duration",
+        "placeholder": "Enter Duration",
+        "id": "duration",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
@@ -40,6 +40,75 @@
         "id": "input1",
         "validation": ["", "trim", ""],
         "url": "Course/search"
+    }, {
+        "name": "Questions",
+        "type": "box",
+        "tableRef": "questionSet",
+        "validation": ["", "trim", ""],
+        "fields": [{
+            "name": "Question",
+            "type": "text",
+            "tableRef": "question",
+            "placeholder": "Enter Question",
+            "id": "question",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Marks",
+            "type": "text",
+            "tableRef": "marks",
+            "placeholder": "Enter Marks",
+            "id": "marks",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Option 1",
+            "type": "text",
+            "tableRef": "option1",
+            "placeholder": "Enter Option1",
+            "id": "option1",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Option 2",
+            "type": "text",
+            "tableRef": "option2",
+            "placeholder": "Enter Option2",
+            "id": "option2",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Option 3",
+            "type": "text",
+            "tableRef": "option3",
+            "placeholder": "Enter Option3",
+            "id": "option3",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Option 4",
+            "type": "text",
+            "tableRef": "option4",
+            "placeholder": "Enter Option4",
+            "id": "option4",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }, {
+            "name": "Correct Answer",
+            "type": "text",
+            "tableRef": "correctAnswer",
+            "placeholder": "Enter Correct Answer",
+            "id": "correctAnswer",
+            "validation": ["", "trim", ""],
+            "url": "",
+            "onView": true
+        }]
     }],
     "action": [{
         "name": "submit",

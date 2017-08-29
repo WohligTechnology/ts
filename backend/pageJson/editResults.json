@@ -1,0 +1,95 @@
+{
+    "title": "Edit Results",
+    "name": "Results",
+    "jsonPage": "viewResults",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+            "name": "User",
+            "type": "tags",
+            "tableRef": "user",
+            "dropDownType": "single",
+            "dropDownField": "name",
+            "searchApi": "searchCall",
+            "placeholder": "Select User",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "User/search"
+        }, {
+            "name": "Test",
+            "type": "tags",
+            "tableRef": "test",
+            "dropDownType": "single",
+            "dropDownField": "name",
+            "searchApi": "searchCall",
+            "placeholder": "Select Test",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": "Test/search"
+        }, {
+            "name": "Result",
+            "type": "result",
+            "type": "box",
+            "tableRef": "result",
+            "validation": ["required", "trim", ""],
+            "fields": [{
+                "name": "Question",
+                "type": "text",
+                "tableRef": "question",
+                "placeholder": "Enter question",
+                "id": "question",
+                "validation": ["", "trim", ""],
+                "url": "",
+                "onView": true
+            }, {
+                "name": "Selected Answer",
+                "type": "text",
+                "tableRef": "selectedAnswer",
+                "placeholder": "Enter selectedAnswer",
+                "id": "selectedAnswer",
+                "validation": ["", "trim", ""],
+                "url": "",
+                "onView": true
+            }, {
+                "name": "marks",
+                "type": "text",
+                "tableRef": "marks",
+                "placeholder": "Enter marks",
+                "id": "marks",
+                "validation": ["", "trim", ""],
+                "url": "",
+                "onView": true
+            }]
+        }
+
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitResult",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewResults"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewResults"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Results/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "Results/getOne",
+        "params": "_id"
+    }
+
+}

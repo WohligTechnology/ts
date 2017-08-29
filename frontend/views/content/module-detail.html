@@ -1,0 +1,98 @@
+<div class="moduleBackground">
+    <section class="container">
+        <div class="moduleTest">
+            <div class="row">
+                <div class="col-md-9 col-xs-3">
+                    <div class="video-div">
+                        <div class="video-head">Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum is simply dummy text
+                            of the printing and typesetting Lorem Ipsum is simply dummy text of the printing and typesetting
+                            Lorem Ipsum is simply dummy text of the printing and typesetting</div>
+                        <div class="video-img">
+                            <div class="video-overlay">
+                                <div class="videologo-pos"><i class="fa fa-play" aria-hidden="true"></i></div>
+                            </div>
+                            <!-- <div class="videologo-pos"><i class="fa fa-play" aria-hidden="true"></i></div> -->
+                            <div><img src="img/moduleDetails1/mainVideo.jpg" class="img-responsive"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-3">
+                    <div class="rel-course">
+                        <div><button type="button" class="btn btn-danger">Start My Free Trial</button></div>
+                        <div class="back-color" id="style-1">
+                            <div class="course-head">Related Course</div>
+                            <div class="row" ng-repeat="video in videoSection">
+                                <div class="col-md-5">
+                                    <div class="side_video"><a href=""><img ng-src="{{video.image}}" class="img-responsive"></a></div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="video-text">
+                                        <h5>{{video.header}}</h5>
+                                        <h6>{{video.content}}</h6>
+                                        <div><span>{{video.time}}</span><span>{{video.views}} Views</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="module-detBottom ts-navtabs">
+                        <div class="row">
+                            <uib-tabset>
+                                <uib-tab index="0" heading="Module">
+                                    <div class="module">
+                                        <div class="col-md-3" ng-repeat="module in modules">
+                                            <div class="module-block">
+                                                <div class="module_img"><img ng-src="{{module.image}}"></div>
+                                                <div class="video-text">
+                                                    <h5>{{module.header}}</h5>
+                                                    <h6>{{module.content}}</h6>
+                                                    <div><span>{{module.time}}</span><span>{{module.views}} Views</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                                <uib-tab index="1" heading="Overview">
+                                    <div class="module-content">
+                                        <div class="col-md-2">
+                                            <div class="author text-center">
+                                                <p>Author</p>
+                                                <div><img ng-src="{{author_image}}"></div>
+                                                <p><b>{{name}}</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div>
+                                                <p><span>Released {{date}} &nbsp;&nbsp;&nbsp; <b>{{views}}</b> Views</span></p>
+                                                <h4><b>{{overviewHeader}}</b></h4>
+                                                <p>{{overviewContent}}</p>
+                                            </div>
+                                            <div class="seemore text-center"><a href="">See more</a></div>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                                <uib-tab index="2" heading="Test">
+                                    <div class="col-md-9">
+                                        <div class="module-content">
+                                            <h4><b>{{header}}</b></h4>
+                                            <p>{{content}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="btn-test">
+                                            <button type="button" class="btn btn-danger" ui-sref="module-test"><i class="fa fa-lock"></i>Start Test</button>
+                                        </div>
+                                    </div>
+                                </uib-tab>
+                            </uib-tabset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

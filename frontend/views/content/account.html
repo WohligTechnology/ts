@@ -1,0 +1,82 @@
+<div class="bg-gray">
+    <section>
+        <div class="moduletest-bg">
+            <div class="bg-overlay-module"></div>
+            <div class="text-module text-center">
+                <h2>My Account</h2>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="score-module">
+                <div class="mar-lr">
+                    <div class="box-shadow bg-white ">
+                        <div class="strip-gray">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="profile ">
+                                        <h3 class="mar-l">My Profile</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-3 col-xs-12">
+                                    <div class="profile">
+                                        <h3>My Subscription</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" bg-white mar-lr">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12 account">
+                                    <div class="profile-detalis" ng-model="formData">
+                                        <h4>{{formData.username}}</h4>
+                                        <h5>{{formData.email}}</h5>
+                                        <h5>{{formData.password}}<span class="change">(Change)</span></h5>
+                                        <h5>{{formData.country}} <span class="change">(Change)</span></h5>
+                                        <h5>{{formData.city}} <span class="change">(Change)</span></h5>
+                                        <h5><a class="">View previous results</a></h5>
+                                    </div>
+                                    <div class="border-right">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="Subscription">
+                                        <div class="mar-t30">
+                                            <h4>Subscription History</h4>
+                                            <h5>{{formData.subscriptiondate}}<span class="change">(90 days remaining)</span></h5>
+                                        </div>
+                                        <div class="mar-t30">
+                                            <h4>Membership History <span class="change">(Change)</span></h4>
+                                            <h5>{{formData.membershipdate}}</h5>
+                                        </div>
+                                        <div class="mar-t30">
+                                            <h4>Transaction History </h4>
+                                            <h5>{{formData.transactiondate}}</h5>
+                                        </div>
+                                        <!--<div class="mar-t30">
+                                            <div class="display-inline-block">
+                                                <h5>Share</h5>
+                                            </div>
+                                        </div>-->
+                                            <div class="mar-t30 ">
+                                           <div class="">
+                                               <h5>Share</h5>
+                                               <ul class="list-inline social-icon  ">
+                                                   <li><a><img src="img/gmail.png" alt="gmail-icon" class="img-responsive"></a></li>
+                                                   <li><a><img src="img/face.png" alt="facebbok" class="img-responsive"></a></li>
+                                                   <li><a><img src="img/t.png" alt="twitter" class="img-responsive"></a></li>
+                                               </ul>
+                                           </div>
+                                       </div>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

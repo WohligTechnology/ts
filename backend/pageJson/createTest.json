@@ -22,11 +22,11 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
-        "name": "Time (in minutes)",
-        "type": "text",
-        "tableRef": "time",
-        "placeholder": "Enter Time",
-        "id": "time",
+        "name": "Duration (in minutes)",
+        "type": "number",
+        "tableRef": "duration",
+        "placeholder": "Enter Duration",
+        "id": "duration",
         "validation": ["", "trim", ""],
         "url": ""
     }, {

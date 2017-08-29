@@ -10,8 +10,6 @@ module.exports = [
 
   //Angular Libs
   'bower_components/angular/angular.js',
-  'bower_components/angular-sanitize/angular-sanitize.js',
-  'bower_components/angular-animate/angular-animate.min.js',
   'bower_components/angular-bootstrap/ui-bootstrap.min.js',
   'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
   'bower_components/angular-ui-router/release/angular-ui-router.min.js',
@@ -20,7 +18,6 @@ module.exports = [
   'bower_components/lodash/lodash.js',
   'bower_components/angulartics/dist/angulartics.min.js',
   'bower_components/angulartics-google-analytics/dist/angulartics-ga.min.js',
-  'bower_components/angular-ui-swiper/dist/angular-ui-swiper.js',
   "bower_components/angular-toastr/dist/angular-toastr.js",
   "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
   "bower_components/angular-promise-buttons/dist/angular-promise-buttons.js",
@@ -47,6 +44,16 @@ module.exports = [
 
   // Contorllers
   'frontend/js/controllers/controller.js',
+  'frontend/js/controllers/enquiry-controller.js',
   'frontend/js/controllers/header-controller.js',
+  'frontend/js/controllers/moduleDetail-controller.js',
+  'frontend/js/controllers/moduleTest-controller.js',
+  'frontend/js/controllers/module-score.js',
+  'frontend/js/controllers/account.js',
+  'frontend/js/controllers/module-score.js',
+  'frontend/js/controllers/account.js',
+  'frontend/js/controllers/privacypolicy.js',
+  'frontend/js/controllers/faq.js',
   'frontend/js/controllers/language-controller.js',
+
 ];

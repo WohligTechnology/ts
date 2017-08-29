@@ -4,17 +4,24 @@ var schema = new Schema({
         required: true
     },
     totalMarks: {
-        type: String,
-        required: true
+        type: String
     },
-    time: {
-        type: String,
-        required: true
+    duration: {
+        type: Number
     },
     course: {
         type: Schema.Types.ObjectId,
         ref: 'Course'
-    }
+    },
+    questionSet: [{
+        question: String,
+        marks:Number,
+        option1: String,
+        option2: String,
+        option3: String,
+        option4: String,
+        correctAnswer:String
+    }]
 });
 
 schema.plugin(deepPopulate, {

@@ -1,0 +1,561 @@
+.mar-lr {
+  margin: 0px 40px;
+}
+
+.banner-img {
+  background-image: url("../img/module/1.jpg");
+  width: 100%;
+  height: 536px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.btn-white {
+  position: relative;
+  width: 270px;
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  color: #b8b8b8;
+}
+
+.btn-white:hover {
+  background: #fff;
+  border: 2px solid #e3e3e3;
+}
+
+.btn-gray {
+  position: absolute;
+  width: 30px;
+  height: 33px;
+  right: 1px;
+  top: 1px;
+  font-size: 20px;
+  background: #e3e3e3;
+  border: none;
+  pointer-events: none;
+}
+
+.btn-filter {
+  position: absolute;
+  left: 5px;
+  top: 7px;
+  font-size: 15px;
+  border: none;
+}
+
+.mar-tb {
+  margin: 35px 0px 40px 0px;
+}
+
+.mar-b {
+  margin-bottom: 50px;
+}
+
+.margin0 {
+  margin: 0;
+}
+
+.mar-t30 {
+  margin-top: 30px;
+}
+
+.mar-t {
+  margin-top: 20px;
+}
+
+.mar-b {
+  margin-bottom: 35px;
+}
+
+.learn-form {
+  font-size: 80px;
+  font-family: 'Myriad Pro Bold';
+  color: #000;
+  letter-spacing: -8px;
+}
+
+.banner-img-text {
+  margin-top: 60px;
+}
+
+.the-best {
+  font-size: 108px;
+  margin-top: -30px;
+}
+
+.pace {
+  font-size: 53px;
+  color: #000;
+  margin-top: -30px;
+}
+
+.conveiniance {
+  font-size: 47px;
+  color: #000;
+}
+
+.heading-category {
+  h4 {
+    color: $red;
+  }
+}
+
+.btn-red {
+  margin-top: 60px;
+  button {
+    font-size: 20px;
+    font-family: 'Myriad Pro Bold';
+    border-radius: 15px;
+  }
+}
+
+.category-img {
+  position: relative;
+  &:hover {
+    .course-imgoverlay {
+      @include position(absolute,
+      0 null null 0);
+      background-color: rgba(0, 0, 0, 0.5);
+      @include transition( 1.0s);
+      pointer-events: none;
+    }
+  }
+}
+
+.ctergory-text {
+  padding: 10px 15px;
+  h5 {
+    color: $red;
+    line-height: 30px;
+  }
+  span {
+    font-size: 13px;
+    font-family: Myriad Pro Regular;
+    color: #5d5d5d;
+    ;
+  }
+  p {
+    color: #000;
+  }
+}
+
+.color-b {
+  color: #000 !important;
+}
+
+.bg-gray {
+  background: #f6f6f6;
+}
+
+.box-shadow {
+  margin-bottom: 40px;
+  margin-top: 20px;
+  box-shadow: 1px 1px 5px rgba(136, 136, 136, 0.55);
+}
+
+.padd-r {
+  padding-right: 10px;
+}
+
+.text-bold {
+  font-family: Myriad Pro Bold !important;
+  padding-right: 3px;
+}
+
+.cource-detail {
+  padding-top: 40px;
+  h4 {
+    font-family: 'Myriad Pro Bold';
+    color: $red;
+  }
+}
+
+.cource-detail-heading {
+  h4 {
+    font-family: 'Myriad Pro Bold';
+    color: #000;
+    font-size: 18px;
+  }
+}
+
+.cource-detail-text {
+  padding-bottom: 40px;
+  p {
+    font-size: 15px;
+  }
+}
+
+//start of module-test page
+.moduletest-bg {
+  background-image: url("../img/module/7.jpg");
+  width: 100%;
+  height: 200px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.bg-overlay-module {
+  @include position(absolute,
+  0 null null 0);
+  background-color: rgba(0, 0, 0, 0.22);
+}
+
+.text-module {
+  @include position(absolute,
+  34% 45% null null);
+  h2 {
+    font-family: Myriad Pro Regular;
+    color: $moduleDetBack; //  margin-top: 85px;
+  }
+}
+
+.bg-gray {
+  background-color: #ebebeb;
+}
+
+.strip-gray {
+  background-color: #3a3a3a;
+}
+
+.course-test {
+  h5 {
+    font-family: Myriad Pro Regular;
+    color: #fff;
+    padding: 6px 60px;
+  }
+}
+
+.Complete-test {
+  .btn {
+    padding: 3px 12px;
+    margin: 10px 0px;
+  }
+}
+
+.time-left {
+  width: 178px;
+  height: 31px;
+  background: white;
+  border-radius: 16px;
+  color: $red;
+  font-size: 17px;
+  font-family: 'Myriad Pro Bold';
+  padding: 5px 15px;
+  margin-top: 9px;
+  span {
+    font-family: Myriad Pro Regular;
+    padding-right: 7px;
+  }
+}
+
+.btn-completetest {
+  font-family: 'Myriad Pro Bold';
+  font-size: 14px;
+  border-radius: 6px;
+  background: $red;
+}
+
+.btn-submit {
+  font-family: 'Myriad Pro Bold';
+  font-size: 17px;
+  padding: 3px 25px;
+  margin-bottom: 25px;
+  background: $red;
+}
+
+.mar-tb {
+  margin: 10px 0px;
+}
+
+.questions {
+  span {
+    font-family: 'Myriad Pro Bold';
+    font-size: 17px;
+  }
+  p {
+    font-size: 18px;
+    color: #000;
+  }
+  h6 {
+    font-family: Myriad Pro Regular;
+    font-size: 16px;
+    color: #000;
+    padding: 20px 60px;
+  }
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.padd-tblr {
+  padding: 50px 60px 25px;
+}
+
+
+/* Base for label styling */
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  // position: absolute;
+  // left: -9999px;
+  display: none;
+}
+
+[type="checkbox"]:not(:checked)+label,
+[type="checkbox"]:checked+label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+
+/* checkbox aspect */
+
+[type="checkbox"]:not(:checked)+label:before,
+[type="checkbox"]:checked+label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ccc;
+  background: #fff; // border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .1);
+}
+
+
+/* checked mark aspect */
+
+[type="checkbox"]:not(:checked)+label:after,
+[type="checkbox"]:checked+label:after {
+  content: '✔';
+  position: absolute;
+  top: .1em;
+  left: -2px;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: $red;
+  transition: all .2s;
+}
+
+
+/* checked mark aspect changes */
+
+[type="checkbox"]:not(:checked)+label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+[type="checkbox"]:checked+label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* disabled checkbox */
+
+[type="checkbox"]:disabled:not(:checked)+label:before,
+[type="checkbox"]:disabled:checked+label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+
+[type="checkbox"]:disabled:checked+label:after {
+  color: #999;
+}
+
+[type="checkbox"]:disabled+label {
+  color: #aaa;
+}
+
+.options {
+  margin: 25px 0px 5px 65px;
+}
+
+.options2 {
+  margin: 25px 0px 5px 25px;
+}
+
+//pagination
+.pagination {
+  border-radius: 0px;
+}
+
+.pagination>li>a {
+  // border-radius: 4px;
+}
+
+.pagination>li>a,
+{
+  margin-right: 15px;
+  padding: 3px 7px;
+  float: none;
+  border-radius: 4px;
+}
+
+//end of pagination
+//start of score page
+.display-inline {
+  display: inline;
+}
+
+.congratulation {
+  margin-top: 50px;
+  h4 {
+    font-size: 20px;
+    margin-left: 25px;
+    color: $red;
+  }
+  .social-icon {
+    margin: 0px 0px 70px 10px;
+}
+}
+
+.score {
+  text-align: right;
+  font-size: 17px;
+  margin-top: 50px;
+}
+
+.mar-trbl {
+  margin: 31px 27px 31px 5px;
+}
+
+.name {
+  font-family: 'Myriad Pro Bold';
+  font-size: 22px;
+}
+
+.totalscore {
+  font-size: 16px;
+  color: $red;
+}
+
+.border {
+  width: 128px;
+  height: 26px;
+  font-size: 16px;
+  padding: 2px 0px;
+  border: 1px solid #ebebeb;
+  box-shadow: 0px 0px 1px rgba(136, 136, 136, 0.55);
+}
+
+.padd-tb {
+  padding: 5px 7px;
+}
+
+.social-icon {
+    margin: -25px 0px 70px 50px;
+  ul {
+    margin-left: 12px;
+  }
+  li {
+    width: 36px;
+  }
+}
+
+.totally-skilled-logo {
+  width: 250px;
+  margin-top: 40%;
+  margin-left: 20%;
+}
+
+.score-module {
+  .mar-lr {
+    margin: 40px 120px 60px;
+  }
+}
+
+.border-right {
+  border-right: 1px solid #ebebeb;
+  height: 307px;
+  margin-top: -39%;
+  margin-right: 13px;
+}
+
+//end of module-score
+//start of account
+.profile {
+  h3 {
+    font-family: Myriad Pro Regular;
+    color: #fff;
+  }
+}
+
+.change {
+  color: $red;
+  padding-left: 10px;
+}
+
+.mar-l {
+  margin-left: 130px;
+}
+
+.profile-detalis {
+  margin-top: 35px;
+  a {
+    text-decoration: underline;
+    color: $red;
+    &:hover {
+      color: $red;
+    }
+  }
+  h4 {
+    font-family: 'Myriad Pro Bold';
+    padding-left: 10px;
+  }
+  h5 {
+    font-family: Myriad Pro Regular;
+    color: #000;
+    padding: 10px;
+  }
+}
+
+.Subscription {
+  span{
+      font-family: Myriad Pro Regular;
+  }
+  h4 {
+    font-family: 'Myriad Pro Bold';
+    margin: 0;
+    font-size: 17px;
+    line-height: 27px;
+  }
+  h5 {
+    font-family: Myriad Pro Regular;
+    margin: 0;
+    font-size: 17px;
+  }
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.account {
+  .border-right {
+    border-right: 1px solid #ebebeb;
+    height: 304px;
+    margin-top: -92%;
+    margin-right: 6px;
+  }
+}
+//end of account
+//start of privacy policy
+
+.privacy-policy{
+  h6{
+        font-family: 'Myriad Pro Bold';
+        color: #000;
+        font-size: 13px;
+  }
+  p{
+     color: #000;
+  }
+}

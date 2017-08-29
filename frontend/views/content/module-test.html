@@ -1,0 +1,78 @@
+<div class="bg-gray">
+    <section>
+        <div class="moduletest-bg">
+            <div class="bg-overlay-module"></div>
+            <div class="text-module text-center">
+                <h2>Test Module</h2>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="course-text">
+                <div class="box-shadow bg-white mar-lr">
+                    <div class="strip-gray">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="course-test mar-tb" ng-model="formData ">
+                                    <h5>{{formData.coursetest}}</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="Complete-test">
+                                    <button type="button" class="btn btn-danger btn-completetest pull-right">Complete Test</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3  col-sm-3 col-xs-12">
+                                <div class="Complete-test">
+                                    <!--<button type="button" class="btn btn-danger btn-completetest">Complete Test</button>-->
+                                    <div class="time-left">
+                                        <div><span>Time Left:</span>00:43:23</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row questions">
+                        <div class="padd-tblr">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="" ng-model="formData">
+                                    <p> <span>Q.No.1 : </span> {{formData.question}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="options" ng-madel="formData">
+                                    <h6><input type="checkbox" id="test2" /><label for="test2">A.</label> {{formData.optionA}}</h6>
+                                    <h6><input type="checkbox" id="test3" /><label for="test3">C.</label> {{formData.optionC}}</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="options2" ng-madel="formData">
+                                    <h6><input type="checkbox" id="test4" /><label for="test4">B.</label> {{formData.optionB}}</h6>
+                                    <h6><input type="checkbox" id="test5" /><label for="test5">D.</label> {{formData.optionD}}</h6>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-danger btn-submit">Submit</button>
+                            </div>
+                            <div class="text-center">
+                                <ul class="pagination ">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                    <li><a href="#">7</a></li>
+                                    <li><a href="#">8</a></li>
+                                    <li><a href="#">9</a></li>
+                                    <li><a href="#">10</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

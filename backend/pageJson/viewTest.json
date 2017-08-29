@@ -13,9 +13,9 @@
         "isSort": "",
         "tableRef": "totalMarks"
     }, {
-        "name": "Time in Minutes",
+        "name": "Duration in Minutes",
         "isSort": "",
-        "tableRef": "time"
+        "tableRef": "duration"
     }],
     "action": [{
         "name": "edit",
