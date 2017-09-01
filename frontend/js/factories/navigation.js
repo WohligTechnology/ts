@@ -1,4 +1,10 @@
-myApp.factory('NavigationService', function () {
+var imgurl = adminurl + "upload/";
+
+var imgpath = imgurl + "readFile";
+var uploadurl = imgurl;
+
+
+myApp.factory('NavigationService', function ($http) {
     var navigation = [{
             name: "Home",
             classis: "active",
@@ -22,9 +28,20 @@ myApp.factory('NavigationService', function () {
         }
     ];
 
-    return {
+     return {
         getNavigation: function () {
             return navigation;
         },
+        callApiWithData: function (url, data, callback) {
+            $http.post(adminurl + url, data).then(function (data) {
+                callback(data);
+            });
+        },
+        callApi: function (url, callback) {
+            console.log("data", url)
+            $http.post(adminurl + url).then(function (data) {
+                callback(data);
+            });
+        }
     };
 });

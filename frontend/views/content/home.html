@@ -37,14 +37,15 @@
                 <h3>Courses</h3>
             </div>
             <div class="row">
-                <div class="col-md-4" ng-repeat="course in Courses">
+                <!--{{Courses.results}}-->
+                <div class="col-md-4" ng-repeat="course in Courses.results">
                     <div class="banner-add" ui-sref="module">
-                        <div class="shortcode-content banner-effect1"> <a href=""> <img ng-src={{course.img}} alt=""> </a>
+                        <div class="shortcode-content banner-effect1"> <a  ui-sref="module"> <img ng-src="{{course.image | serverimage}} "alt=""> </a>
                             <div class="banner-des">
                                 <div class="display-table">
                                     <div class="display-cell text-center align-middle">
                                         <div class="texts">
-                                            <h4>{{course.text}}</h4>
+                                            <h4>{{course.name}}</h4>
                                         </div>
                                     </div>
                                 </div>

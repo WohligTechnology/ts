@@ -58,7 +58,7 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Course', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "categories relatedCourse tags", "categories relatedCourse tags"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "categories relatedCourse tags relatedCourse.relatedVideo", "categories relatedCourse tags relatedCourse.relatedVideo"));
 var model = {
 
     getAllCourse: function (data, callback) {

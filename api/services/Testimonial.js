@@ -34,17 +34,24 @@ module.exports = mongoose.model('Testimonial', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
-    getAllTestimonial: function (req, res) {
-        if (req.body) {
-            Testimonial.getAllTestimonial(req.body, res.callback);
-        } else {
-            res.json({
-                value: false,
-                data: {
-                    message: "Invalid Request"
+    getAllTestimonial: function (data, callback) {
+        Testimonial.find().deepPopulate("").exec(function (err, found) {
+
+            if (err) {
+
+                callback(err, null);
+            } else {
+
+                if (found) {
+                    console.log("Found", found);
+                    callback(null, found);
+                } else {
+                    callback(null, {
+                        message: "No Data Found"
+                    });
                 }
-            })
-        }
+            }
+        })
     }
 };
 module.exports = _.assign(module.exports, exports, model);
