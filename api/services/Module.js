@@ -18,7 +18,19 @@ var schema = new Schema({
         type: String,
         default: ""
     },
+    smallImage: {
+        type: String,
+        default: ""
+    },
+    bigVideoImage: {
+        type: String,
+        default: ""
+    },
     videoUrl: {
+        type: String,
+        default: ""
+    },
+    duration: {
         type: String,
         default: ""
     },
@@ -58,6 +70,9 @@ schema.plugin(deepPopulate, {
     Populate: {
         'course': {
             select: '_id name'
+        },
+        'course course.relatedCourse': {
+            select: '_id name'
         }
     }
 });
@@ -65,7 +80,7 @@ schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
 module.exports = mongoose.model('Module', schema);
 
-var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "course course.relatedVideo", "course course.relatedVideo"));
+var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "course course.relatedCourse", "course course.relatedCourse"));
 var model = {
 
     getModuleByCourse: function (data, callback) {
@@ -73,7 +88,7 @@ var model = {
         Module.find({
             course: data.course
 
-        }).deepPopulate("course course.relatedVideo").exec(function (err, found) {
+        }).deepPopulate("course course.relatedCourse").exec(function (err, found) {
 
             if (err) {
 
@@ -95,7 +110,7 @@ var model = {
     findOneModule: function (data, callback) {
         Module.findOne({
             _id: data._id
-        }).deepPopulate("course course.relatedVideo").exec(function (err, found) {
+        }).deepPopulate("course course.relatedCourse").exec(function (err, found) {
 
             if (err) {
 

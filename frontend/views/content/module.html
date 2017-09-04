@@ -1,6 +1,7 @@
 <section>
     <!--backgound img-->
-    <div class="banner-img ">
+    <!--{{courseDetails.bigImage}}-->
+    <div class="banner-img " style="background-image: url('{{courseDetails.bigImage  | serverimage}}')">
         <div class="container">
             <div class="row">
                 <div class="mar-lr">
@@ -45,17 +46,17 @@
             <div class="col-md-12">
                 <div class="mar-lr">
                     <div class="heading-category">
-                        <h4>{{category.title}}</h4>
+                        <h4>{{category.name}}</h4>
                     </div>
                     <div class="bg-gray box-shadow">
                         <div class="category-img">
-                            <img ng-src="{{category.image}}" alt="{{category.title}}" class="img-responsive" ui-sref="module-detail">
+                            <img ng-src="{{category.image | serverimage}}" alt="{{category.title}}" class="img-responsive"  ui-sref='module-detail({moduleId:category._id})'>
                             <div class="course-imgoverlay"></div>
                         </div>
                         <div class="ctergory-text">
-                            <h5 class="margin0">{{category.title1}}</h5>
-                            <p>{{category.title2}}</p>
-                            <span class=" color-b">{{category.title3}}</span>
+                            <h5 class="margin0">{{category.title}}</h5>
+                            <p ng-bind-html="category.description | unsafe"></p>
+                            <span class=" color-b">{{category.author}}</span>
                             <span class="pull-right padd-r">{{category.title6}}</span>
                             <span class="pull-right text-bold">{{category.title5}}</span>
                             <span class="pull-right padd-r">{{category.title4}}</span>
@@ -75,18 +76,10 @@
                     <h4>Course Details</h4>
                 </div>
                 <div class="cource-detail-heading">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
+                    <h4>{{courseDetails.title}}</h4>
                 </div>
                 <div class="cource-detail-text">
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-                        Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
-                        at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur,
-                        from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered
-                        the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum
-                        et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise
-                        on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem
-                        ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    <p ng-bind-html="courseDetails.description|unsafe">
                     </p>
                 </div>
             </div>

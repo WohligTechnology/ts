@@ -34,9 +34,31 @@
         "name": "Image",
         "type": "image",
         "tableRef": "image",
-        "size": "250 x 250",
+        "size": "1060 x 162",
         "placeholder": "Upload Image",
         "id": "image",
+        "view": true,
+        "disabled": true,
+        "validation": ["required", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Small Image",
+        "type": "image",
+        "tableRef": "smallImage",
+        "size": "250 x 250",
+        "placeholder": "Upload Small Image",
+        "id": "smallImage",
+        "view": true,
+        "disabled": true,
+        "validation": ["required", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Big Video Image",
+        "type": "image",
+        "tableRef": "bigVideoImage",
+        "size": "1160 x 872",
+        "placeholder": "Upload Big Video Image",
+        "id": "bigVideoImage",
         "view": true,
         "disabled": true,
         "validation": ["required", "trim", ""],
@@ -55,6 +77,14 @@
         "tableRef": "videoUrl",
         "placeholder": "Enter Video URL",
         "id": "videoUrl",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Video Duration",
+        "type": "text",
+        "tableRef": "duration",
+        "placeholder": "Enter Video Duration",
+        "id": "duration",
         "validation": ["", "trim", ""],
         "url": ""
     }, {

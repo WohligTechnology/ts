@@ -24,12 +24,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'HomeCtrl'
         })
         .state('module', {
-            url: "/module",
+            url: "/module/:courseId",
             templateUrl: tempateURL,
             controller: 'moduleCtrl'
         })
         .state('module-detail', {
-            url: "/module-detail",
+            url: "/module-detail/:moduleId",
             templateUrl: tempateURL,
             controller: 'moduleDetailCtrl'
         })

@@ -8,7 +8,7 @@ var data={};
 console.log("avinash",TemplateService);
        
 NavigationService.callApiWithData("Course/search", data, function (data) {
-    console.log(data.data.data);
+    console.log("*****$scope.Courses",data.data.data);
             // console.log("comapnyData", data);
             $scope.Courses = data.data.data;
             // console.log($scope.Courses);
@@ -166,56 +166,88 @@ NavigationService.callApiWithData("Testimonial/getAllTestimonial", data, functio
         });
     })
 
-    .controller('moduleCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
+    .controller('moduleCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $stateParams) {
         $scope.template = TemplateService.getHTML("content/module.html");
         TemplateService.title = "Module"; // This is the Title of the Website
         $scope.navigation = NavigationService.getNavigation();
-        $scope.categoryImg = [{
+        console.log("******stateParams", $stateParams);
 
-                "image": "img/module/2.jpg",
-                "title": "Category 1",
-                "title1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-                "title2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.consectetur adipisicing elit.Lorem ipsum dolor sit amet,",
-                "title3": "Harray Johnson",
-                "title4": "45min 57s",
-                "title5": "1,3890 ",
-                "title6": " Views"
-            },
-            {
+        var data={};
+        data.course=$stateParams.courseId;
+        data._id=$stateParams.courseId;
+        NavigationService.callApiWithData("Module/getModuleByCourse", data, function (data) {
+        console.log("****** data",data.data.data);
+            $scope.categoryImg = data.data.data;
+            console.log("Module",$scope.categoryImg);
 
-                "image": "img/module/4.jpg",
-                "title": "Category 2",
-                "title1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-                "title2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.consectetur adipisicing elit.Lorem ipsum dolor sit amet,",
-                "title3": "Harray Johnson",
-                "title4": "45min 57s",
-                "title5": "1,3890 ",
-                "title6": " Views"
-            },
-            {
+        });
 
-                "image": "img/module/5.jpg",
-                "title": "Category 3",
-                "title1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-                "title2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.consectetur adipisicing elit.Lorem ipsum dolor sit amet,",
-                "title3": "Harray Johnson",
-                "title4": "45min 57s",
-                "title5": "1,3890 ",
-                "title6": " Views"
-            },
-            {
+        NavigationService.callApiWithData("Course/findOneCourse", data, function (data) {
+        console.log("****** courseDetails",data.data.data);
+            $scope.courseDetails = data.data.data;
+            console.log("courseDetails",$scope.courseDetails);
 
-                "image": "img/module/6.jpg",
-                "title": "Category 4",
-                "title1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-                "title2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.consectetur adipisicing elit.Lorem ipsum dolor sit amet,",
-                "title3": "Harray Johnson",
-                "title4": "45min 57s",
-                "title5": "1,3890 ",
-                "title6": " Views"
-            }
+        });
 
-        ];
+
+        // $scope.categoryImg = [{
+
+        //         "image": "img/module/2.jpg",
+        //         "title": "Category 1",
+        //         "title1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        //         "title2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.consectetur adipisicing elit.Lorem ipsum dolor sit amet,",
+        //         "title3": "Harray Johnson",
+        //         "title4": "45min 57s",
+        //         "title5": "1,3890 ",
+        //         "title6": " Views"
+        //     },
+        //     {
+
+        //         "image": "img/module/4.jpg",
+        //         "title": "Category 2",
+        //         "title1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        //         "title2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.consectetur adipisicing elit.Lorem ipsum dolor sit amet,",
+        //         "title3": "Harray Johnson",
+        //         "title4": "45min 57s",
+        //         "title5": "1,3890 ",
+        //         "title6": " Views"
+        //     },
+        //     {
+
+        //         "image": "img/module/5.jpg",
+        //         "title": "Category 3",console.log("******stateParams", $stateParams);
+
+        var data={};
+        data.course=$stateParams.courseId;
+        data._id=$stateParams.courseId;
+        NavigationService.callApiWithData("Module/getModuleByCourse", data, function (data) {
+        console.log("****** data",data.data.data);
+            $scope.categoryImg = data.data.data;
+            console.log("Module",$scope.categoryImg);
+
+        });
+
+        //         "title1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        //         "title2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.consectetur adipisicing elit.Lorem ipsum dolor sit amet,",
+        //         "title3": "Harray Johnson",
+        //         "title4": "45min 57s",
+        //         "title5": "1,3890 ",
+        //         "title6": " Views"
+        //     },
+        //     {
+
+        //         "image": "img/module/6.jpg",
+        //         "title": "Category 4",
+        //         "title1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        //         "title2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.consectetur adipisicing elit.Lorem ipsum dolor sit amet,",
+        //         "title3": "Harray Johnson",
+        //         "title4": "45min 57s",
+        //         "title5": "1,3890 ",
+        //         "title6": " Views"
+        //     }
+
+        // ];
+
         // $scope.image = "img/module/2.jpg";
         // $scope.title = "Category 1";
         // $scope.title1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit.";

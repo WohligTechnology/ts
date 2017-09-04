@@ -8,7 +8,14 @@ var schema = new Schema({
     title: {
         type: String
     },
+    description: {
+        type: String
+    },
     price: {
+        type: String,
+        default: ""
+    },
+    duration: {
         type: String,
         default: ""
     },

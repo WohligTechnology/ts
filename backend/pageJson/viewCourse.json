@@ -32,15 +32,6 @@
             "_id": "_id"
         }
     }, {
-        "name": "Questions",
-        "icon": "fa-pencil",
-        "buttonClass": "btn-primary",
-        "type": "redirect",
-        "action": "#!/questions",
-        "fieldsToSend": {
-            "_id": "_id"
-        }
-    }, {
         "name": "delete",
         "icon": "fa-trash",
         "buttonClass": "btn-danger",

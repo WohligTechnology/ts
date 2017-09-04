@@ -22,11 +22,28 @@
         "validation": ["", "trim", ""],
         "url": ""
     }, {
+        "name": "Description",
+        "isSort": "",
+        "tableRef": "description",
+        "type": "wysiwyg",
+        "placeholder": "Enter Description",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
         "name": "Price",
         "type": "text",
         "tableRef": "price",
         "placeholder": "Enter Price",
         "id": "price",
+        "validation": ["", "trim", ""],
+        "url": ""
+    }, {
+        "name": "Course Duration",
+        "type": "text",
+        "tableRef": "duration",
+        "placeholder": "Enter Total Course Duration",
+        "id": "duration",
         "validation": ["", "trim", ""],
         "url": ""
     }, {
