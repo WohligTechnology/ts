@@ -171,14 +171,14 @@ NavigationService.callApiWithData("Testimonial/getAllTestimonial", data, functio
         TemplateService.title = "Module"; // This is the Title of the Website
         $scope.navigation = NavigationService.getNavigation();
         console.log("******stateParams", $stateParams);
+        $scope.dropdowntext="Sort by: Sequence (Ascending)";
 
         var data={};
         data.course=$stateParams.courseId;
         data._id=$stateParams.courseId;
         NavigationService.callApiWithData("Module/getModuleByCourse", data, function (data) {
-        console.log("****** data",data.data.data);
             $scope.categoryImg = data.data.data;
-            console.log("Module",$scope.categoryImg);
+            console.log("Module scope.categoryImg:",$scope.categoryImg);
 
         });
 
@@ -189,6 +189,16 @@ NavigationService.callApiWithData("Testimonial/getAllTestimonial", data, functio
 
         });
 
+        $scope.dropboxitemselected=function(data,err){
+            console.log("in dropboxitemselected function",data);
+            $scope.dropdowntext=data.text;
+            NavigationService.callApiWithData("Module/getModuleByCourse", data, function (data) {
+        console.log("****** data",data.data.data);
+            $scope.categoryImg = data.data.data;
+            console.log("Module in dropdownselect",$scope.categoryImg);
+
+        });
+        }
 
         // $scope.categoryImg = [{
 

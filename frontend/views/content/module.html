@@ -29,12 +29,21 @@
                     <div class="dropdown pull-right mar-b">
                         <button class="btn btn-default dropdown-toggle btn-white" type="button" data-toggle="dropdown">Sort by: release date(newest first)
 <button class="btn-default btn-gray"> <span><i class="fa fa-angle-down" aria-hidden="true"></i></span></button>
-                        <button class="btn-default btn-filter"> <span><i class="fa fa-filter" aria-hidden="true"></i></span></button>
+                        <button class="btn-default btn-filter"> 
+                            {{dropdowntext}}
+                            <span><i class="fa fa-filter" aria-hidden="true"></i></span>
+                            </button>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Sort by: release date(newest first)</a></li>
-                            <li><a href="#">Sort by: release date(newest first)</a></li>
-                            <li><a href="#">Sort by: release date(newest first)</a></li>
+                            <li><a href="#" ng-click="dropboxitemselected({course:courseDetails._id,sequenceOrder:1,text:'Sort by: Sequence (Ascending)'})">Sort by: Sequence (Ascending)</a></li>
+                            <li><a href="#" ng-click="dropboxitemselected({course:courseDetails._id,sequenceOrder:-1,text:'Sort by: Sequence (Descending)'})">Sort by: Sequence (Descending)</a></li>
+                            <li><a href="#" ng-click="dropboxitemselected({course:courseDetails._id,sortOrder:1,text:'Sort by: release date(newest first)'})">Sort by: release date(newest first)</a></li>
+                            <li><a href="#" ng-click="dropboxitemselected({course:courseDetails._id,sortOrder:-1,text:'Sort by: release date(Oldest first)'})">Sort by: release date(Oldest first)</a></li>
+
+                            <!--<li><a href="#" ng-click="dropboxitemselected({course:courseDetails._id,sequenceOrder:1,text:'Sort by: Sequence (Ascending)'})">Sort by: Sequence (Ascending)</a></li>
+                            <li><a href="#" ng-click="dropboxitemselected({course:courseDetails._id,sequenceOrder:-1,text:Sort by: Sequence (Descending)})">Sort by: Sequence (Descending)</a></li>
+                            <li><a href="#" ng-click="dropboxitemselected({course:courseDetails._id,sortOrder:1,text:Sort by: release date(newest first)})">Sort by: release date(newest first)</a></li>
+                            <li><a href="#" ng-click="dropboxitemselected({course:courseDetails._id,sortOrder:-1,text:Sort by: release date(Oldest first)})">Sort by: release date(Oldest first)</a></li>-->
                         </ul>
                     </div>
                 </div>

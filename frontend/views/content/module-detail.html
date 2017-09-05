@@ -30,7 +30,10 @@
                                         <div class="video-text">
                                             <h5>{{cource.name}}</h5>
                                             <h6>{{cource.title}}</h6>
-                                            <div><span>{{cource.duration}}</span><span>{{cource.views}} Views</span></div>
+                                            <!--<div><span><my-hours my-data="time"></my-hours></span><span>{{cource.views}} Views</span></div>-->
+                                            <div><span>{{cource.duration | toHours}}</span>
+                                            <!--<span>{{cource.views}} Views</span >-->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +56,10 @@
                                                 <div class="video-text">
                                                     <h5>{{module.title}}</h5>
                                                     <h6 ng-bind-html="module.description | unsafe"></h6>
-                                                    <div><span>{{module.duration}}</span><span>{{module.views}} Views</span></div>
+                                                    <div>
+                                                        <span>{{module.duration | toHours}}</span>
+                                                        <!--<span>{{module.views}} Views</span>-->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

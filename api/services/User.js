@@ -152,6 +152,33 @@ module.exports = mongoose.model('User', schema);
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "subscribed subscribed.course subscribed.instructor result result.course result.test", "subscribed subscribed.course subscribed.instructor result result.course result.test"));
 var model = {
 
+    saveSignupUser: function(data, callback) {
+        if (data.password && data.password != "") {
+            data.password = sails.md5(data.password);
+        }
+        var user = this(data);
+        if (data._id) {
+            this.findOneAndUpdate({
+                _id: data._id
+            }, data, function(err, data2) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    callback(null, data2);
+                }
+            });
+        } else {
+            User.save(function(err, data2) {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    callback(null, data2);
+                }
+            });
+        }
+
+    },
+
     existsSocial: function (user, callback) {
         var Model = this;
         Model.findOne({

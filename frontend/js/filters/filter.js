@@ -18,12 +18,29 @@ myApp.filter('unsafe', function ($sce) {
     return $sce.trustAsHtml;
 });
 
-angular.module('myApp.filters', []).
-filter('htmlToPlaintext', function () {
-    return function (text) {
-        return angular.element(text).text();
-    }
+
+myApp.filter('toHours', function () {
+    var timeFormatted = "";
+    return function (input) {
+        if (input) {
+            var hours = (input / 60);
+            var intHours=parseInt(hours,10)
+            if (hours != 0) {
+                var mins = input - (intHours * 60);
+                var timeFormatted = intHours + " Hours " + mins + " Mins";
+                console.log("toHours", timeFormatted);
+            }
+
+            return timeFormatted;
+
+        } else {
+            return "AA";
+        }
+    };
 });
+
+
+
 
 myApp.filter('serverimage', function () {
     return function (input, width, height, style) {

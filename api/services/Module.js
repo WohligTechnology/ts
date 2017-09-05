@@ -85,10 +85,28 @@ var model = {
 
     getModuleByCourse: function (data, callback) {
         console.log(data);
+
+        var sort={};
+        if(data.sortOrder){
+           sort = {
+                createdAt: data.sortOrder
+            }
+        } else if(data.sequenceOrder)
+        {
+            sort={
+                sequence: data.sequenceOrder
+            }
+        }else{
+            sort={
+                sequence: 1
+            }
+        }
+        console.log("testing sort:",sort);
+
         Module.find({
             course: data.course
 
-        }).deepPopulate("course course.relatedCourse").exec(function (err, found) {
+        }).sort(sort).deepPopulate("course course.relatedCourse").exec(function (err, found) {
 
             if (err) {
 
@@ -96,7 +114,7 @@ var model = {
             } else {
 
                 if (found) {
-                    console.log("Found", found);
+                    console.log("Found after sort", found);
                     callback(null, found);
                 } else {
                     callback(null, {
