@@ -1,3 +1,4 @@
+var md5 = require('md5');
 var schema = new Schema({
     name: {
         type: String,
@@ -70,77 +71,77 @@ var schema = new Schema({
         default: "User",
         enum: ['User', 'Admin']
     },
-    oneSignal:{
-        type:String
+    oneSignal: {
+        type: String
     },
-    contact:{
-        type:String
+    contact: {
+        type: String
     },
-    subscribed:[{
-        course:{
+    subscribed: [{
+        course: {
             type: Schema.Types.ObjectId,
             ref: 'Course'
         },
-        instructor:{
+        instructor: {
             type: Schema.Types.ObjectId,
             ref: 'Instructor'
         },
-        timestamp:{
-            type:Date
+        timestamp: {
+            type: Date
         },
-        endTime:{
-            type:String
+        endTime: {
+            type: String
         },
-        amount:{
-            type:String
+        amount: {
+            type: String
         },
-        paymentMethod:{
-            type:String
+        paymentMethod: {
+            type: String
         },
-        transactionId:{
-            type:String
+        transactionId: {
+            type: String
         },
-        other:{
-            type:String
+        other: {
+            type: String
         }
     }],
-    result:[{
-        course:{
+    result: [{
+        course: {
             type: Schema.Types.ObjectId,
             ref: 'Course'
         },
-        test:{
+        test: {
             type: Schema.Types.ObjectId,
             ref: 'Test'
         },
-        timestamp:{
-            type:Date
+        timestamp: {
+            type: Date
         },
-        marks:{
-            type:String
+        marks: {
+            type: String
         }
     }]
 });
 
 schema.plugin(deepPopulate, {
     populate: {
-        'subscribed':{
-            select:''
+        'subscribed': {
+            select: ''
         },
-        'subscribed.course':{
-            select:'_id name'
+        'subscribed.course': {
+            select: '_id name'
         },
-        'subscribed.instructor':{
-            select:'_id name'
+        'subscribed.instructor': {
+            select: '_id name'
         },
-        'result':{
-            select:''
+        'result': {
+            select: ''
         },
-        'result.course':{
-            select:'_id name'
+        'result.course': {
+            select: '_id name'
         },
-        'result.test':{
-            select:'_id name'
+        'result.test': {
+            select: '_id name'
         }
     }
 });
@@ -152,31 +153,97 @@ module.exports = mongoose.model('User', schema);
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema, "subscribed subscribed.course subscribed.instructor result result.course result.test", "subscribed subscribed.course subscribed.instructor result result.course result.test"));
 var model = {
 
-    saveSignupUser: function(data, callback) {
+    saveLoginData: function (data, callback) {
+        console.log(data);
         if (data.password && data.password != "") {
-            data.password = sails.md5(data.password);
+            data.password = md5(data.password);
         }
-        var user = this(data);
+        var User = this(data);
         if (data._id) {
             this.findOneAndUpdate({
                 _id: data._id
-            }, data, function(err, data2) {
+            }, data).exec(function (err, updated) {
                 if (err) {
+                    console.log(err);
                     callback(err, null);
+                } else if (updated) {
+                    callback(null, updated);
                 } else {
-                    callback(null, data2);
+                    callback(null, {});
                 }
             });
         } else {
-            User.save(function(err, data2) {
+            User.save(function (err, created) {
                 if (err) {
                     callback(err, null);
+                } else if (created) {
+                    callback(null, created);
                 } else {
-                    callback(null, data2);
+                    callback(null, {});
                 }
             });
         }
-
+    },
+    login: function (data, callback) {
+        data.password = md5(data.password);
+        User.findOne({
+            email: data.email,
+            password: data.password
+        }, function (err, data2) {
+            if (err) {
+                console.log(err);
+                callback(err, null);
+            } else {
+                if (_.isEmpty(data2)) {
+                    User.findOne({
+                        email: data.email,
+                        forgotpassword: data.password
+                    }, function (err, data4) {
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                            if (_.isEmpty(data4)) {
+                                callback(null, {
+                                    comment: "User Not Found"
+                                });
+                            } else {
+                                User.findOneAndUpdate({
+                                    _id: data4._id
+                                }, {
+                                    password: data.password,
+                                    forgotpassword: ""
+                                }, function (err, data5) {
+                                    if (err) {
+                                        console.log(err);
+                                        callback(err, null);
+                                    } else {
+                                        data5.password = "";
+                                        data5.forgotpassword = "";
+                                        callback(null, data5);
+                                    }
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    User.findOneAndUpdate({
+                        _id: data2._id
+                    }, {
+                        forgotpassword: ""
+                    }, function (err, data3) {
+                        if (err) {
+                            console.log(err);
+                            callback(err, null);
+                        } else {
+                            data3.password = "";
+                            data3.forgotpassword = "";
+                            callback(null, data3);
+                        }
+                    });
+                }
+            }
+        });
     },
 
     existsSocial: function (user, callback) {
@@ -208,7 +275,7 @@ var model = {
                 if (user.image && user.image.url) {
                     modelUser.photo = user.image.url;
                 }
-                console.log("modelUser",modelUser);
+                console.log("modelUser", modelUser);
                 Model.saveData(modelUser, function (err, data2) {
                     if (err) {
                         callback(err, data2);

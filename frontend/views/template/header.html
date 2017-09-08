@@ -18,8 +18,18 @@
                     </div>
                     <div class="pull-right right-nav">
                         <button type="button" class="btn btn-danger" ui-sref="enquiry"><b>Be an Instructor</b></button>
+                        
+                        <span ng-if="loggedInUserStatus != true">
+                            
                         <p><a ng-click="openLogin(0)">Sign In</a></p>
                         <button type="button" class="btn btn-danger" ng-click="openLogin(1)"><b>SIGN UP</b></button>
+                        </span>
+
+                        <span ng-if="loggedInUserStatus != false">
+                            
+                        <p><b>{{loggedInUser.name}}</b></p>
+                        <button type="button" class="btn btn-danger" ng-click="logoutUser(loggedInUser)"><b>Log Out</b></button>
+                        </span>
                     </div>
                 </div>
             </div>

@@ -21,6 +21,7 @@ module.exports = [
   "bower_components/angular-toastr/dist/angular-toastr.js",
   "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
   "bower_components/angular-promise-buttons/dist/angular-promise-buttons.js",
+  "bower_components/jStorage/jstorage.js",
 
   //App.js
   'frontend/js/app.js',
@@ -37,6 +38,7 @@ module.exports = [
 
   // Services
   'frontend/js/services/template.js',
+  'frontend/js/services/modal.js',
 
   //Factories
   'frontend/js/factories/navigation.js',
@@ -55,5 +57,6 @@ module.exports = [
   'frontend/js/controllers/privacypolicy.js',
   'frontend/js/controllers/faq.js',
   'frontend/js/controllers/language-controller.js',
+  'frontend/js/controllers/modal-controller.js',
 
 ];

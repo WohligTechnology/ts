@@ -8,7 +8,7 @@ var myApp = angular.module('myApp', [
     'angular-flexslider',
     'angularPromiseButtons',
     'toastr',
-    'angular-flexslider',
+    'angular-flexslider'
 ]);
 
 // Define all the routes below
@@ -21,7 +21,10 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         .state('home', {
             url: "/",
             templateUrl: tempateURL,
-            controller: 'HomeCtrl'
+            controller: 'HomeCtrl',
+            params:{
+                modal:false
+            }
         })
         .state('module', {
             url: "/module/:courseId",

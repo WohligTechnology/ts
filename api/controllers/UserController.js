@@ -1,18 +1,182 @@
 module.exports = _.cloneDeep(require("sails-wohlig-controller"));
 var controller = {
-    signupUser: function (req, res) {
-        console.log("inside signupUser controller")
-        if (req.body) {
-            User.saveSignupUser(req.body, res.callback);
+    saveUser: function (req, res) {
+    if (req.body) {
+      User.saveLoginData(req.body, function (err, data) {
+        if (err) {
+          res.json({
+            value: false,
+            data: err
+          });
+
         } else {
-            res.json({
-                value: false,
-                data: {
-                    message: "Invalid Request"
-                }
-            })
+          req.session.user = data;
+          console.log("User Data", req.session.user);
+          res.json({
+            value: true,
+            data: data
+          });
         }
-    },
+      });
+    } else {
+      res.json({
+        value: false,
+        data: "Invalid Request"
+      });
+    }
+  },
+  
+  login: function(req, res) {
+    var callback = function(err, data) {
+      if (err || _.isEmpty(data)) {
+        res.json({
+          error: err,
+          value: false
+        });
+      } else {
+        if (data._id) {
+          req.session.user = data;
+          req.session.save();
+          console.log(req.session.user);
+          res.json({
+            data: data,
+            value: true
+          });
+        } else {
+          req.session.user = {};
+
+          res.json({
+            data: {},
+            value: false
+          });
+        }
+      }
+    };
+    if (req.body) {
+      if (req.body.email && req.body.email !== "" && req.body.password && req.body.password !== "") {
+        User.login(req.body, callback);
+      } else {
+        res.json({
+          data: "Please provide params",
+          value: true
+        });
+      }
+    } else {
+      res.json({
+        data: "Invalid Call",
+        value: true
+      });
+    }
+  },
+
+  getProfile: function (req, res) {
+    // var user = req.session.user;
+    if (req.body) {
+      if (req.session.user) {
+        req.body._id = req.session.user._id;
+        User.getOne(req.body, function (err, respo) {
+          if (err) {
+            res.json({
+              value: true,
+              data: err
+            });
+          } else {
+            req.session.user = respo;
+            res.json({
+              value: true,
+              data: respo
+            });
+          }
+        });
+      } else {
+        res.json({
+          data: "User not logged in",
+          value: false
+        });
+      }
+    } else {
+      res.json({
+        data: "Invalid Request",
+        value: false
+      });
+    }
+  },
+
+  setUserSession: function (req, res) {
+    // var user = req.session.user;
+    if (req.body._id) {
+      User.getOne(req.body, function (err, respo) {
+        if (err) {
+          res.json({
+            value: true,
+            data: err
+          });
+        } else {
+          req.session.user = respo;
+          res.json({
+            value: true,
+            data: respo
+          });
+        }
+      });
+    } else {
+      res.json({
+        data: "Invalid Request",
+        value: false
+      });
+    }
+  },
+
+  loginCheck: function (req, res) {
+    var callback = function (err, data) {
+      if (err || _.isEmpty(data)) {
+        res.json({
+          error: err,
+          value: false
+        });
+      } else {
+        if (data) {
+          req.session.user = data;
+          //req.session.save();
+          console.log(req.session.user);
+          res.json({
+            data: data,
+            value: true
+          });
+        } else {
+
+          req.session.user = {};
+          res.json({
+            data: {},
+            value: false
+          });
+        }
+      }
+    };
+    if (req.body) {
+      if (req.body.email && req.body.email !== "" && req.body.password && req.body.password !== "") {
+        User.login(req.body, callback);
+      } else {
+        res.json({
+          data: "Please provide params",
+          value: true
+        });
+      }
+    } else {
+      res.json({
+        data: "Invalid Call",
+        value: true
+      });
+    }
+  },
+  logout: function (req, res) {
+    req.session.destroy(function (err) {
+      res.json({
+        data: "Logout Successful",
+        value: true
+      });
+    });
+  },
     loginFacebook: function (req, res) {
         passport.authenticate('facebook', {
             scope: ['public_profile', 'user_friends', 'email'],

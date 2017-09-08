@@ -1,14 +1,32 @@
-myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, TemplateService, NavigationService, $timeout, $uibModal) {
+myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state, TemplateService, NavigationService, $timeout, $uibModal) {
         $scope.template = TemplateService.getHTML("content/home.html");
         TemplateService.title = "Home"; //This is the Title of the Website
         $scope.navigation = NavigationService.getNavigation();
 
-var data={};
+        $scope.openLogin = function (activetab) {
+            $scope.activeTab = activetab;
+            $scope.loginModal = $uibModal.open({
+                animation: true,
+                templateUrl: 'views/modal/login.html',
+                scope: $scope,
+                windowClass: 'loginModalSize'
+            });
+        }
 
-console.log("avinash",TemplateService);
-       
-NavigationService.callApiWithData("Course/search", data, function (data) {
-    console.log("*****$scope.Courses",data.data.data);
+        if ($stateParams.modal == true) {
+            console.log("in stateparams if");
+            $scope.openLogin(0);
+
+        }
+
+        
+
+        var data = {};
+
+        console.log("avinash", TemplateService);
+
+        NavigationService.callApiWithData("Course/search", data, function (data) {
+            console.log("*****$scope.Courses", data.data.data);
             // console.log("comapnyData", data);
             $scope.Courses = data.data.data;
             // console.log($scope.Courses);
@@ -18,10 +36,10 @@ NavigationService.callApiWithData("Course/search", data, function (data) {
 
         });
 
-NavigationService.callApiWithData("Testimonial/getAllTestimonial", data, function (data) {
-    console.log(data.data.data);
+        NavigationService.callApiWithData("Testimonial/getAllTestimonial", data, function (data) {
+            console.log(data.data.data);
             $scope.cards = data.data.data;
-            console.log("Testimonial",$scope.cards);
+            console.log("Testimonial", $scope.cards);
 
         });
 
@@ -61,7 +79,7 @@ NavigationService.callApiWithData("Testimonial/getAllTestimonial", data, functio
         //     "name": "- Robert Wotson",
         //     "company": "Infosys",
         //     "des": "CEO"
-        // }, {
+        // }, {submitLoginForm
         //     "image": "img/cardimage3.png",
         //     "alt": "Testimonials 1",
         //     "content": "Pellentesque habitant morbitristique senectus et netus etmalesuada fames ac turpis egest ipsum primis in faucibus.Sed utnetlectus laoreet aliquameu cond.",
@@ -171,33 +189,33 @@ NavigationService.callApiWithData("Testimonial/getAllTestimonial", data, functio
         TemplateService.title = "Module"; // This is the Title of the Website
         $scope.navigation = NavigationService.getNavigation();
         console.log("******stateParams", $stateParams);
-        $scope.dropdowntext="Sort by: Sequence (Ascending)";
+        $scope.dropdowntext = "Sort by: Sequence (Ascending)";
 
-        var data={};
-        data.course=$stateParams.courseId;
-        data._id=$stateParams.courseId;
+        var data = {};
+        data.course = $stateParams.courseId;
+        data._id = $stateParams.courseId;
         NavigationService.callApiWithData("Module/getModuleByCourse", data, function (data) {
             $scope.categoryImg = data.data.data;
-            console.log("Module scope.categoryImg:",$scope.categoryImg);
+            console.log("Module scope.categoryImg:", $scope.categoryImg);
 
         });
 
         NavigationService.callApiWithData("Course/findOneCourse", data, function (data) {
-        console.log("****** courseDetails",data.data.data);
+            console.log("****** courseDetails", data.data.data);
             $scope.courseDetails = data.data.data;
-            console.log("courseDetails",$scope.courseDetails);
+            console.log("courseDetails", $scope.courseDetails);
 
         });
 
-        $scope.dropboxitemselected=function(data,err){
-            console.log("in dropboxitemselected function",data);
-            $scope.dropdowntext=data.text;
+        $scope.dropboxitemselected = function (data, err) {
+            console.log("in dropboxitemselected function", data);
+            $scope.dropdowntext = data.text;
             NavigationService.callApiWithData("Module/getModuleByCourse", data, function (data) {
-        console.log("****** data",data.data.data);
-            $scope.categoryImg = data.data.data;
-            console.log("Module in dropdownselect",$scope.categoryImg);
+                console.log("****** data", data.data.data);
+                $scope.categoryImg = data.data.data;
+                console.log("Module in dropdownselect", $scope.categoryImg);
 
-        });
+            });
         }
 
         // $scope.categoryImg = [{
@@ -227,13 +245,13 @@ NavigationService.callApiWithData("Testimonial/getAllTestimonial", data, functio
         //         "image": "img/module/5.jpg",
         //         "title": "Category 3",console.log("******stateParams", $stateParams);
 
-        var data={};
-        data.course=$stateParams.courseId;
-        data._id=$stateParams.courseId;
+        var data = {};
+        data.course = $stateParams.courseId;
+        data._id = $stateParams.courseId;
         NavigationService.callApiWithData("Module/getModuleByCourse", data, function (data) {
-        console.log("****** data",data.data.data);
+            console.log("****** data", data.data.data);
             $scope.categoryImg = data.data.data;
-            console.log("Module",$scope.categoryImg);
+            console.log("Module", $scope.categoryImg);
 
         });
 

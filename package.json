@@ -5,6 +5,7 @@
   "description": "A Wohlig Application",
   "keywords": [],
   "dependencies": {
+    "@types/jstorage": "^0.3.30",
     "async": "^2.5.0",
     "autoprefixer": "^6.7.7",
     "chalk": "^1.1.3",

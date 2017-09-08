@@ -8,16 +8,18 @@
             <uib-tabset justified="false" active="activeTab">
                 <uib-tab index="0" heading="Login">
                     <div class="login">
-                        <form name="loginForm">
+                        <!--<pre>{{formData|json}}</pre>
+                        <pre>{{loginForm.password|json}}</pre>-->
+                        <form name="loginForm" ng-submit="submitLoginForm(formData)">
                             <div class="row">
                                 <div class="input-field">
-                                    <div class="col-md-2">Name</div>
+                                    <div class="col-md-2">Email</div>
                                     <div class="col-md-10">
                                         <div class="inner-addon left-addon">
                                             <i class="fa fa-user" aria-hidden="true"></i>
-                                            <input type="text" class="form-control" name="name" ng-model="formData.name" data-toggle="tooltip" title="Please enter your name"
+                                            <input type="email" class="form-control" name="email" ng-model="formData.email" data-toggle="tooltip" title="Please enter your Email"
                                                 required/>
-                                            <span class="alignment" ng-show="loginForm.name.$touched && loginForm.name.$invalid">Please enter your name</span>
+                                            <span class="alignment" ng-show="loginForm.name.$touched && loginForm.email.$invalid">Please enter your Email</span>
                                         </div>
                                     </div>
                                 </div>
@@ -30,15 +32,21 @@
                                             <i class="fa fa-lock" aria-hidden="true"></i>
                                             <input type="password" name="password" ng-model="formData.password" class="form-control" data-toggle="tooltip" title="Please enter your password"
                                                 required/>
+                                            <!--<div class="pull-right" ng-repeat="(field,value) in loginForm.password.$errors" ng-show="loginForm.password.$touched">
+                                                    <span class="label label-danger" ng-if="field=='required' && value">Please Enter Password.</span>
+                                                </div>-->
                                             <span class="alignment" ng-show="loginForm.password.$touched && loginForm.password.$invalid">Please enter your password</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <span class="alignment" ng-if="loginError">{{loginError}}</span>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="login-btn pull-right">
-                                        <div class="login_btn"><button type="submit" class="btn btn-danger" item-width="30px"><b>Login</b></button></div>
+                                        <div class="login_btn">
+                                            <button type="submit" class="btn btn-danger" item-width="30px" ng-disabled="loginForm.$invalid"><b>Login</b></button>
+                                        </div>
                                         <div class="forgot-text"><a href="">Forgot Your Password?</a></div>
                                     </div>
                                 </div>
@@ -46,19 +54,23 @@
                         </form>
                     </div>
                 </uib-tab>
-                <uib-tab index="1" heading="Sign Up">
+                <uib-tab index="1" heading="Sign Up" >
                     <div class="signUp-title"><b>Start your 15 days free trial</b></div>
-                    <form class="signUpForm" name="signUp">
+                    <form class="signUpForm" name="signUpForm" ng-submit="submitSignUpForm(formData1)">
+                        <!--{{formData1}}-->
                         <div class="form-group">
                             <div class="signupfrm">
                                 <div class="label-cls">
                                     <label for="fullname" class="control-label">Full Name</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="text" class="form-control" name="fullname" ng-model="formData.fullname" data-toggle="tooltip" title="Please enter your fullname"
+                                    <input type="text" class="form-control" name="name" ng-model="formData1.name" data-toggle="tooltip" title="Please enter your Full Name"
                                         required/>
+                                    <div class="pull-right" ng-repeat="(field,value) in signUpForm.name.$errors" ng-show="signUpForm.name.$touched">
+                                        <span class="label label-danger" ng-if="field=='required' && value">Please Enter Full Name.</span>
+                                    </div>
                                 </div>
-                                <span class="alignment" ng-show="signUp.fullname.$touched && signUp.fullname.$invalid">Please enter your fullname</span>
+                                <span class="alignment" ng-show="signUpForm.name.$touched && signUpForm.name.$invalid">Please enter your fullname</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -67,10 +79,10 @@
                                     <label for="email" class="control-label">Email</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="email" class="form-control" name="email" ng-model="formData.email" data-toggle="tooltip" title="Please enter your Email"
+                                    <input type="email" class="form-control" name="email" ng-model="formData1.email" data-toggle="tooltip" title="Please enter your Email"
                                         required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.email.$touched && signUp.email.$invalid">Please enter your email</span>
+                                <span class="alignment" ng-show="signUpForm.email.$touched && signUpForm.email.$invalid">Please enter Valid Email</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -79,10 +91,12 @@
                                     <label for="remail" class="control-label">Re-enter Email</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="email" class="form-control" name="remail" ng-model="formData.remail" data-toggle="tooltip" title="Please re-enter your Email"
-                                        required/>
+                                    <input type="email" class="form-control" name="remail" ng-model="formData1.remail" data-toggle="tooltip" title="Please re-enter your Email"
+                                        ng-pattern="formData1.email" required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.remail.$touched && signUp.remail.$invalid">Please re-enter your email</span>
+                                <!--{{signUpForm.remail.$error}}-->
+                                <span class="alignment" data-ng-show="signUpForm.remail.$error.pattern">Emails have to match!</span>
+                                <span class="alignment" ng-show="signUpForm.remail.$touched && signUpForm.remail.$invalid">Please re-enter your email</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -91,22 +105,24 @@
                                     <label for="remail" class="control-label">Password</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="password" class="form-control" name="spassword" ng-model="formData.spassword" data-toggle="tooltip" title="Please enter your password"
+                                    <input type="password" class="form-control" name="password" ng-model="formData1.password" data-toggle="tooltip" title="Please enter your password"
                                         required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.spassword.$touched && signUp.spassword.$invalid">Please enter your password</span>
+                                <span class="alignment" ng-show="signUpForm.password.$touched && signUpForm.password.$invalid">Please enter your password</span>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="signupfrm">
+                                <!--{{signUpForm.remail.$error}}-->
                                 <div class="label-cls">
                                     <label for="cpassword" class="control-label">Confirm Password</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="password" class="form-control" name="cpassword" ng-model="formData.cpassword" data-toggle="tooltip" title="Please re-enter your Password"
-                                        required/>
+                                    <input type="password" class="form-control" name="cpassword" ng-model="formData1.cpassword" data-toggle="tooltip" title="Please re-enter your Password"
+                                        ng-pattern="formData1.password" required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.cpassword.$touched && signUp.cpassword.$invalid">Please re-enter your password</span>
+                                <span class="alignment" data-ng-show="signUpForm.cpassword.$error.pattern">Passwords have to match!</span>
+                                <span class="alignment" ng-show="signUpForm.cpassword.$touched && signUpForm.cpassword.$invalid">Please re-enter your password</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -115,10 +131,10 @@
                                     <label for="country" class="control-label">Country</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="text" class="form-control" name="country" ng-model="formData.country" data-toggle="tooltip" title="Please enter your country"
+                                    <input type="text" class="form-control" name="country" ng-model="formData1.country" data-toggle="tooltip" title="Please enter your country"
                                         required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.country.$touched && signUp.country.$invalid">Please enter your country</span>
+                                <span class="alignment" ng-show="signUpForm.country.$touched && signUpForm.country.$invalid">Please enter your country</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -127,10 +143,10 @@
                                     <label for="city" class="control-label">City</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="text" class="form-control" name="city" ng-model="formData.city" data-toggle="tooltip" title="Please enter your city"
+                                    <input type="text" class="form-control" name="city" ng-model="formData1.city" data-toggle="tooltip" title="Please enter your city"
                                         required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.city.$touched && signUp.city.$invalid">Please enter your city</span>
+                                <span class="alignment" ng-show="signUpForm.city.$touched && signUpForm.city.$invalid">Please enter your city</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -139,10 +155,13 @@
                                     <label for="age" class="control-label">Age</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="number" class="form-control" name="age" ng-model="formData.age" data-toggle="tooltip" title="Please enter your age"
+                                    <input type="number" class="form-control" name="age" ng-model="formData1.age" data-toggle="tooltip" title="Please enter your age"
                                         required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.age.$touched && signUp.age.$invalid">Please enter your age</span>
+                                <div class="pull-right" ng-repeat="(field,value) in formData1.age.$error" ng-show="formData1.age.$touched">
+                                    <span class="label label-danger" ng-if="field=='required' && value">Please Enter Age</span>
+                                </div>
+                                <!--<span class="alignment" ng-show="signUpForm.age.$touched && signUpForm.age.$invalid">Please enter your age</span>-->
                             </div>
                         </div>
                         <div class="form-group">
@@ -151,10 +170,10 @@
                                     <label for="gender" class="control-label">Gender</label>
                                 </div>
                                 <div class="input-cls">
-                                    <input type="text" class="form-control" name="gender" ng-model="formData.gender" data-toggle="tooltip" title="Please enter your gender"
+                                    <input type="text" class="form-control" name="gender" ng-model="formData1.gender" data-toggle="tooltip" title="Please enter your gender"
                                         required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.gender.$touched && signUp.gender.$invalid">Please enter your gender</span>
+                                <span class="alignment" ng-show="signUpForm.gender.$touched && signUpForm.gender.$invalid">Please enter your gender</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -163,17 +182,21 @@
                                     <label for="message" class="control-label">How do you know about us</label>
                                 </div>
                                 <div class="input-cls">
-                                    <textarea class="form-control" name="message" ng-model="formData.message" data-toggle="tooltip" title="Please enter your message"
+                                    <textarea class="form-control" name="message" ng-model="formData1.message" data-toggle="tooltip" title="Please enter your message"
                                         required/>
                                 </div>
-                                <span class="alignment" ng-show="signUp.message.$touched && signUp.message.$invalid">Please enter your message</span>
+                                <span class="alignment" ng-show="signUpForm.message.$touched && signUpForm.message.$invalid">Please enter your message</span>
                             </div>
                         </div>
                         <div class="tc">
-                            <input type="checkbox" id="agree" /><label for="agree">I agree with the <a href="">Terms &amp; Conditions</a></label>
+                            <input type="checkbox" id="agree" ng-model="formData1.agree" required /><label for="agree">I agree with the <a href="">Terms &amp; Conditions</a></label>
+                        </div>
+                        <div>
+                             <span class="alignment" ng-if="signUpErrorMessage">{{signUpErrorMessage}}</span>
                         </div>
                         <div class="signUp text-center">
-                            <button type="button" class="btn btn-danger"><b>Sign Up</b></button>
+                            <button type="submit" class="btn btn-danger" item-width="30px" ng-disabled="signUpForm.$invalid"><b>Sign Up</b></button>
+                            <!--<button ng-disabled="loginForm.$invalid" type="button" class="btn btn-danger"><b>Sign Up</b></button>-->
                         </div>
                     </form>
                 </uib-tab>
