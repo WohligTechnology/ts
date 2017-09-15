@@ -1,26 +1,31 @@
-myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state, TemplateService, NavigationService, $timeout, $uibModal) {
+myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state, TemplateService, NavigationService, $timeout, $uibModal,ModalService) {
         $scope.template = TemplateService.getHTML("content/home.html");
         TemplateService.title = "Home"; //This is the Title of the Website
         $scope.navigation = NavigationService.getNavigation();
 
+        // $scope.openLogin = function (activetab) {
+        //     $scope.activeTab = activetab;
+        //     console.log($scope.activeTab);
+        //     $scope.loginModal = $uibModal.open({
+        //         animation: true,
+        //         templateUrl: 'views/modal/login.html',
+        //         scope: $scope,
+        //         windowClass: 'loginModalSize'
+        //     });
+        // }
+
+        // if ($stateParams.modal == true) {
+        //     console.log("in stateparams if");
+        //     $scope.openLogin(0);
+
+        // }
         $scope.openLogin = function (activetab) {
+            console.log(activetab, "inside login Current");
             $scope.activeTab = activetab;
-            console.log($scope.activeTab);
-            $scope.loginModal = $uibModal.open({
-                animation: true,
-                templateUrl: 'views/modal/login.html',
-                scope: $scope,
-                windowClass: 'loginModalSize'
-            });
+            console.log($scope.activeTab, "after active tab");
+            ModalService.openLogin(activetab);
         }
 
-        if ($stateParams.modal == true) {
-            console.log("in stateparams if");
-            $scope.openLogin(0);
-
-        }
-
-        
 
         var data = {};
 
@@ -167,12 +172,12 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
             "main_head": "About Us",
             "head": "Our Mission",
             "content": "Our goal at TotallySkilled is to eliminate the professional skills gap in the Energy Industry and provide accessible high-quality learning 24/7 across the World. By providing practical skills by experts, we aim to enhance your skills to meet the challenges that professionals face today and tomorrow."
-        },{
+        }, {
             "main_head": "About Us",
             "head": "Our Mission",
             "content": "Our goal at TotallySkilled is to eliminate the professional skills gap in the Energy Industry and provide accessible high-quality learning 24/7 across the World. By providing practical skills by experts, we aim to enhance your skills to meet the challenges that professionals face today and tomorrow."
         }];
-        
+
 
         // $scope.slides = [{
         //     "main_head": "About Us",
