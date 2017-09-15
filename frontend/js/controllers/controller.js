@@ -171,6 +171,7 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
             "head": "Our Mission",
             "content": "Our goal at TotallySkilled is to eliminate the professional skills gap in the Energy Industry and provide accessible high-quality learning 24/7 across the World. By providing practical skills by experts, we aim to enhance your skills to meet the challenges that professionals face today and tomorrow."
         }];
+        
 
         // $scope.slides = [{
         //     "main_head": "About Us",
