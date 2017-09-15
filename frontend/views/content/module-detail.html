@@ -6,11 +6,18 @@
                     <div class="video-div">
                         <div class="video-head">{{oneModule.title}}</div>
                         <div class="video-img">
-                            <div class="video-overlay">
+                            <ng-youtube-embed 
+                                video="fullVideoUrlPath" 
+                                autoplay="false"
+                                color="white"
+                                disablekb="true"
+                                end="20" width="100%" height="600">
+                            </ng-youtube-embed>
+                            <!--<div class="video-overlay" ng-click>
                                 <div class="videologo-pos"><i class="fa fa-play" aria-hidden="true"></i></div>
                             </div>
                             <!-- <div class="videologo-pos"><i class="fa fa-play" aria-hidden="true"></i></div> -->
-                            <div><img src="{{oneModule.bigVideoImage | serverimage}}" class="img-responsive"></div>
+                            <!--<div><img src="{{oneModule.bigVideoImage | serverimage}}" class="img-responsive"></div>-->
                         </div>
                     </div>
                 </div>
@@ -26,7 +33,7 @@
                                     <div class="col-md-5">
                                         <div class="side_video"><a ><img ng-src="{{cource.image|serverimage}}" class="img-responsive"></a></div>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div     class="col-md-7">
                                         <div class="video-text">
                                             <h5>{{cource.name}}</h5>
                                             <h6>{{cource.title}}</h6>
@@ -79,7 +86,7 @@
                                             <div>
                                                 <!--<p><span>Released {{date}} &nbsp;&nbsp;&nbsp; <b>{{views}}</b> Views</span></p>-->
                                                 <!--<h4><b>{{overviewHeader}}</b></h4>-->
-                                                <p>{{oneModule.authorDescription}}</p>
+                                                <p ng-bind-html="oneModule.authorDescription | unsafe"></p>
                                             </div>
                                             <div class="seemore text-center"><a href="">See more</a></div>
                                         </div>

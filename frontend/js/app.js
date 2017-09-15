@@ -8,7 +8,8 @@ var myApp = angular.module('myApp', [
     'angular-flexslider',
     'angularPromiseButtons',
     'toastr',
-    'angular-flexslider'
+    'angular-flexslider',
+    'ngYoutubeEmbed'
 ]);
 
 // Define all the routes below

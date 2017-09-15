@@ -4,7 +4,7 @@ myApp.controller('moduleDetailCtrl', function ($scope, TemplateService, Navigati
     $scope.navigation = NavigationService.getNavigation();
 
     // if ($.jStorage.get("userSession")) {
-
+$scope.videoId = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
     console.log("******stateParams", $stateParams);
 
     var data = {};
@@ -14,6 +14,9 @@ myApp.controller('moduleDetailCtrl', function ($scope, TemplateService, Navigati
     NavigationService.callApiWithData("Module/findOneModule", data, function (data) {
         console.log("****** data", data.data.data);
         $scope.oneModule = data.data.data;
+        $scope.fullVideoUrlPath="https://www.youtube.com/watch?v="+$scope.oneModule.videoUrl;
+        // $scope.oneModule.push({fullVideoUrl:"$scope.fullVideoUrlPath"});
+        // console.log("oneModule fullVideoUrl***",$scope.fullVideoUrlPath);
         // var abc={"name":"avinash"};
         $scope.oneCourse = $scope.oneModule.course;
         $scope.relatedCourse = $scope.oneModule.course.relatedCourse;
