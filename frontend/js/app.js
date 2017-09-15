@@ -6,7 +6,6 @@ var myApp = angular.module('myApp', [
     'angulartics.google.analytics',
     'ui.bootstrap',
     'angular-flexslider',
-    'angularPromiseButtons',
     'toastr',
     'angular-flexslider',
     'ngYoutubeEmbed'
