@@ -161,23 +161,34 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
             "heading": "Learn Anywhere",
             "content": "Switch between your computer,tablet, or mobile device."
         }];
+
         $scope.slides = [{
             "main_head": "About Us",
-            "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed turpis rhoncus, placerat lacus ac, tempus neque.",
-            "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac anteipsum primis in faucibus.Sed ut nisl et lectus laoreet aliquam eu condimentum leo.Etiam vehicula, nulla tincidunt  consectetur luctus, metus nibh blandit dui, in accumsan ligula arcu ac neque. Aenean eu ipsum a sem volutpat scelerisque non eget dui. Suspendisse athorci etlacusfinibus consequat nec at odio. Proin ut semper mauris, eget congue sem. Nulla congue malesuada mauris id sodales."
-        }, {
+            "head": "Our Mission",
+            "content": "Our goal at TotallySkilled is to eliminate the professional skills gap in the Energy Industry and provide accessible high-quality learning 24/7 across the World. By providing practical skills by experts, we aim to enhance your skills to meet the challenges that professionals face today and tomorrow."
+        },{
             "main_head": "About Us",
-            "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed turpis rhoncus, placerat lacus ac, tempus neque.",
-            "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac anteipsum primis in faucibus.Sed ut nisl et lectus laoreet aliquam eu condimentum leo.Etiam vehicula, nulla tincidunt  consectetur luctus, metus nibh blandit dui, in accumsan ligula arcu ac neque. Aenean eu ipsum a sem volutpat scelerisque non eget dui. Suspendisse athorci etlacusfinibus consequat nec at odio. Proin ut semper mauris, eget congue sem. Nulla congue malesuada mauris id sodales."
-        }, {
-            "main_head": "About Us",
-            "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed turpis rhoncus, placerat lacus ac, tempus neque.",
-            "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac anteipsum primis in faucibus.Sed ut nisl et lectus laoreet aliquam eu condimentum leo.Etiam vehicula, nulla tincidunt  consectetur luctus, metus nibh blandit dui, in accumsan ligula arcu ac neque. Aenean eu ipsum a sem volutpat scelerisque non eget dui. Suspendisse athorci etlacusfinibus consequat nec at odio. Proin ut semper mauris, eget congue sem. Nulla congue malesuada mauris id sodales."
-        }, {
-            "main_head": "About Us",
-            "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed turpis rhoncus, placerat lacus ac, tempus neque.",
-            "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac anteipsum primis in faucibus.Sed ut nisl et lectus laoreet aliquam eu condimentum leo.Etiam vehicula, nulla tincidunt  consectetur luctus, metus nibh blandit dui, in accumsan ligula arcu ac neque. Aenean eu ipsum a sem volutpat scelerisque non eget dui. Suspendisse athorci etlacusfinibus consequat nec at odio. Proin ut semper mauris, eget congue sem. Nulla congue malesuada mauris id sodales."
+            "head": "Our Mission",
+            "content": "Our goal at TotallySkilled is to eliminate the professional skills gap in the Energy Industry and provide accessible high-quality learning 24/7 across the World. By providing practical skills by experts, we aim to enhance your skills to meet the challenges that professionals face today and tomorrow."
         }];
+
+        // $scope.slides = [{
+        //     "main_head": "About Us",
+        //     "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed turpis rhoncus, placerat lacus ac, tempus neque.",
+        //     "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac anteipsum primis in faucibus.Sed ut nisl et lectus laoreet aliquam eu condimentum leo.Etiam vehicula, nulla tincidunt  consectetur luctus, metus nibh blandit dui, in accumsan ligula arcu ac neque. Aenean eu ipsum a sem volutpat scelerisque non eget dui. Suspendisse athorci etlacusfinibus consequat nec at odio. Proin ut semper mauris, eget congue sem. Nulla congue malesuada mauris id sodales."
+        // }, {
+        //     "main_head": "About Us",
+        //     "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed turpis rhoncus, placerat lacus ac, tempus neque.",
+        //     "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac anteipsum primis in faucibus.Sed ut nisl et lectus laoreet aliquam eu condimentum leo.Etiam vehicula, nulla tincidunt  consectetur luctus, metus nibh blandit dui, in accumsan ligula arcu ac neque. Aenean eu ipsum a sem volutpat scelerisque non eget dui. Suspendisse athorci etlacusfinibus consequat nec at odio. Proin ut semper mauris, eget congue sem. Nulla congue malesuada mauris id sodales."
+        // }, {
+        //     "main_head": "About Us",
+        //     "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed turpis rhoncus, placerat lacus ac, tempus neque.",
+        //     "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac anteipsum primis in faucibus.Sed ut nisl et lectus laoreet aliquam eu condimentum leo.Etiam vehicula, nulla tincidunt  consectetur luctus, metus nibh blandit dui, in accumsan ligula arcu ac neque. Aenean eu ipsum a sem volutpat scelerisque non eget dui. Suspendisse athorci etlacusfinibus consequat nec at odio. Proin ut semper mauris, eget congue sem. Nulla congue malesuada mauris id sodales."
+        // }, {
+        //     "main_head": "About Us",
+        //     "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed turpis rhoncus, placerat lacus ac, tempus neque.",
+        //     "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac anteipsum primis in faucibus.Sed ut nisl et lectus laoreet aliquam eu condimentum leo.Etiam vehicula, nulla tincidunt  consectetur luctus, metus nibh blandit dui, in accumsan ligula arcu ac neque. Aenean eu ipsum a sem volutpat scelerisque non eget dui. Suspendisse athorci etlacusfinibus consequat nec at odio. Proin ut semper mauris, eget congue sem. Nulla congue malesuada mauris id sodales."
+        // }];
 
         $(window).load(function () {
             $('.flexslider').flexslider()
