@@ -10,8 +10,10 @@ myApp.controller('headerCtrl', function ($scope, apiService, $stateParams, Templ
 
     
     $scope.openLogin = function (activetab) {
-        console.log("inside login");
-            ModalService.openLogin();
+        console.log(activetab,"inside login Current");
+        $scope.activeTab=activetab;
+        console.log($scope.activeTab,"after active tab");
+            ModalService.openLogin(activetab);
     }
 
     if($.jStorage.get("userSession"))

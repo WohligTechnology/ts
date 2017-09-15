@@ -1,6 +1,7 @@
-myApp.service('ModalService', function ($http, $state, $uibModal, $timeout) {
+myApp.service('ModalService', function ($http, $state, $uibModal, $timeout,$rootScope) {
 
-    this.openLogin = function () {
+    this.openLogin = function (activetab) {
+        $rootScope.activeTab=activetab;
         console.log("exexcuted");
          this.openLoginModal = $uibModal.open({
             animation: true,

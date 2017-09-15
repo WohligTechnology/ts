@@ -5,6 +5,7 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
 
         $scope.openLogin = function (activetab) {
             $scope.activeTab = activetab;
+            console.log($scope.activeTab);
             $scope.loginModal = $uibModal.open({
                 animation: true,
                 templateUrl: 'views/modal/login.html',

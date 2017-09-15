@@ -13,9 +13,11 @@
          $('[data-toggle="tooltip"]').tooltip();
      });
 
-     console.log("login Controller");
+     console.log("login Controller before openLogin");
      $scope.openLogin = function (activetab) {
-         ModalService.openLogin();
+         console.log(activetab,"active tab value");
+         $scope.activeTab=activetab;
+         ModalService.openLogin(activetab);
      }
      
 
