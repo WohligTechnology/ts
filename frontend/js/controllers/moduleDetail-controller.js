@@ -185,7 +185,7 @@ $scope.videoId = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
     // }];
 
     $scope.header = "Module Test";
-    $scope.content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry 's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960 s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+    $scope.content = "In multiple choice tasks, there is a question followed by three possible answers, or the beginning of a sentence followed by three possible ways to complete the sentence. Test takers are required to choose the one correct answer - A, B or C. Sometimes, test takers are given a longer list of possible answers and told that they have to choose more than one. In this case, they should read the question carefully to check how many answers are required.";
 
     $scope.author_image = "img/moduleDetails1/overview.jpg";
     $scope.name = "John Derry";
