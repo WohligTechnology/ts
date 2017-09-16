@@ -74,7 +74,7 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
         // }, {
         //     "image": "img/cardimage1.png",
         //     "alt": "Testimonials 1",
-        //     "content": "Pellentesque habitant morbitristique senectus et netus etmalesuada fames ac turpis egest ipsum primis in faucibus.Sed utnetlectus laoreet aliquameu cond.",
+        //     "content": "Pellentesque habitant morbitristique senectus et netus etmalesuada fames ac turpis egest ipsum primis in faucibus.Sed utnetlectus laoreet aliquameu cond.",AM
         //     "name": "- Robert Wotson",
         //     "company": "Infosys",
         //     "des": "CEO"
@@ -141,7 +141,7 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
         // }, {
         //     "img": "img/course3.jpg",
         //     "text": "Course 3"
-        // }, {
+        // }, {AM
         //     "img": "img/course4.jpg",
         //     "text": "Course 4"
         // }, {
@@ -202,7 +202,7 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
         });
     })
 
-    .controller('moduleCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $stateParams) {
+    .controller('moduleCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $stateParams,ModalService) {
         $scope.template = TemplateService.getHTML("content/module.html");
         TemplateService.title = "Module"; // This is the Title of the Website
         $scope.navigation = NavigationService.getNavigation();
@@ -217,6 +217,14 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
             console.log("Module scope.categoryImg:", $scope.categoryImg);
 
         });
+
+
+        $scope.openLogin = function (activetab) {
+            $scope.activeTab = activetab;
+            console.log($scope.activeTab, "after active tab in moduleCtrl");
+            ModalService.openLogin(activetab);
+        }
+
 
         NavigationService.callApiWithData("Course/findOneCourse", data, function (data) {
             console.log("****** courseDetails", data.data.data);

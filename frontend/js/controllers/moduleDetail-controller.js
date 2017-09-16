@@ -4,8 +4,16 @@ myApp.controller('moduleDetailCtrl', function ($scope, TemplateService, Navigati
     $scope.navigation = NavigationService.getNavigation();
 
     // if ($.jStorage.get("userSession")) {
-$scope.videoId = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
+    $scope.videoId = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
     console.log("******stateParams", $stateParams);
+
+
+    $scope.openLogin = function (activetab) {
+        $scope.activeTab = activetab;
+        console.log($scope.activeTab, "after active tab in moduleCtrl");
+        ModalService.openLogin(activetab);
+    }
+
 
     var data = {};
     var abc = {};
@@ -14,7 +22,7 @@ $scope.videoId = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
     NavigationService.callApiWithData("Module/findOneModule", data, function (data) {
         console.log("****** data", data.data.data);
         $scope.oneModule = data.data.data;
-        $scope.fullVideoUrlPath="https://www.youtube.com/watch?v="+$scope.oneModule.videoUrl;
+        $scope.fullVideoUrlPath = "https://www.youtube.com/watch?v=" + $scope.oneModule.videoUrl;
         // $scope.oneModule.push({fullVideoUrl:"$scope.fullVideoUrlPath"});
         // console.log("oneModule fullVideoUrl***",$scope.fullVideoUrlPath);
         // var abc={"name":"avinash"};
