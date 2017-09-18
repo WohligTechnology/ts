@@ -38,7 +38,7 @@
             </div>
             <div class="row">
                 <!--{{Courses.results}}-->
-                <div class="col-md-4" ng-repeat="course in Courses.results">
+                <div class="col-md-4" ng-repeat="course in Courses">
                     <div class="banner-add" ui-sref="module({courseId:course._id})">
                         <div class="shortcode-content banner-effect1"> <a  ui-sref="module({courseId:course._id})"> <img ng-src="{{course.image | serverimage}} "alt=""> </a>
                             <div class="banner-des">

@@ -41,6 +41,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'moduleTestCtrl'
         })
+        .state('course', {
+            url: "/course",
+            templateUrl: tempateURL,
+            controller: 'courseCtrl'
+        })
         .state('about-us', {
             url: "/about-us",
             templateUrl: tempateURL,

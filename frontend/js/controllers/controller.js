@@ -34,8 +34,15 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
         NavigationService.callApiWithData("Course/search", data, function (data) {
             console.log("*****$scope.Courses", data.data.data);
             // console.log("comapnyData", data);
-            $scope.Courses = data.data.data;
-            // console.log($scope.Courses);
+            var dataToBeSliced=data.data.data.results;
+            // console.log(dataToBeSliced,"dataToBeSliced");
+            var toBeSliced=_.slice(dataToBeSliced,0,6);
+            
+            // console.log(toBeSliced,"toBeSliced");
+            $scope.Courses = toBeSliced;
+            // _.take($scope.Courses,2);
+            console.log("after slice",$scope.Courses);
+            // $scope.Courses.slice(0,2);
             // console.log("Courses", $scope.Courses.results);
             // console.log($scope.Courses.results);
             // $scope.Courses = _.chunk($scope.Courses.results, 3);
@@ -310,6 +317,25 @@ myApp.controller('HomeCtrl', function ($scope, apiService, $stateParams, $state,
         //     $scope.title4 = "45min 57s",
         //     $scope.title5 = "1,3890 ",
         //     $scope.title6 = " Views"
+    })
+
+    .controller('courseCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $stateParams,ModalService) {
+        $scope.template = TemplateService.getHTML("content/course.html");
+        TemplateService.title = "Course"; // This is the Title of the Website
+        $scope.navigation = NavigationService.getNavigation();
+        console.log("******stateParams", $stateParams);
+        // $scope.dropdowntext = "Sort by: Sequence (Ascending)";
+
+        var data = {};
+
+        NavigationService.callApiWithData("Course/search", data, function (data) {
+            console.log("*****$scope.Courses", data.data.data);
+            // console.log("comapnyData", data);
+            $scope.Courses=data.data.data.results;
+            console.log("after slice",$scope.Courses);
+
+        });
+        
     })
 
     .controller('FormCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
